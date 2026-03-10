@@ -116,6 +116,7 @@ export default function Home() {
               boxShadow: '28px 36px 72px rgba(0,0,0,0.30), 8px 12px 24px rgba(0,0,0,0.18)',
             }}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={hero.photo || '/muntala.jpg'}
               alt={`${hero.name} ${hero.surname}`}

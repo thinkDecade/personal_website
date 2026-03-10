@@ -40,7 +40,8 @@ export default function EventCarousel({ events = [] }) {
     }
   }
 
-  // Keyboard navigation
+  // Keyboard navigation — manualNav/prev/next are stable per render; deps are intentional
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'ArrowLeft')  manualNav(prev)
@@ -129,6 +130,7 @@ export default function EventCarousel({ events = [] }) {
               {/* Image */}
               <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
                 {ev.src ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={ev.src}
                     alt={ev.caption}

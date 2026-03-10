@@ -75,6 +75,7 @@ function EventRow({ ev, index, total, onUpdate, onDelete, onMove }) {
         {/* Photo preview */}
         <div className="flex-shrink-0 w-20 h-24 rounded-xl overflow-hidden border border-white/10 bg-[#1a1a1a] flex items-center justify-center relative">
           {ev.src ? (
+            // eslint-disable-next-line @next/next/no-img-element
             <img src={ev.src} alt="" className="w-full h-full object-cover" />
           ) : (
             <span className="text-neutral-700 text-2xl">◈</span>

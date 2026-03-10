@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
+import Link from 'next/link'
 
 function LoginForm() {
   const [password, setPassword] = useState('')
@@ -78,7 +79,7 @@ function LoginForm() {
         </form>
 
         <p className="text-center text-neutral-700 text-xs mt-6">
-          ← <a href="/" className="hover:text-neutral-500 transition-colors">Back to site</a>
+          ← <Link href="/" className="hover:text-neutral-500 transition-colors">Back to site</Link>
         </p>
       </div>
     </div>
