@@ -65,9 +65,9 @@
 }
 
 @layer utilities {
-  .text-muted    { color: rgb(var(--color-fg) / 0.60); }
-  .text-dim      { color: rgb(var(--color-fg) / 0.35); }
-  .text-whisper  { color: rgb(var(--color-fg) / 0.20); }
+  .text-muted    { color: rgb(var(--color-fg) / 0.72); }
+  .text-dim      { color: rgb(var(--color-fg) / 0.52); }
+  .text-whisper  { color: rgb(var(--color-fg) / 0.42); }
 
   .border-subtle { border-color: rgb(var(--color-fg) / 0.10); }
   .border-mid    { border-color: rgb(var(--color-fg) / 0.20); }

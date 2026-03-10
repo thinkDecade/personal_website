@@ -3,6 +3,7 @@
 // Sovereign Frontier is a separate project and lives on the Founder page.
 
 import { getSubstackPosts } from '@/lib/substack'
+import { IconCalendar }    from '@/components/icons'
 
 export const metadata = {
   title: 'Writings',
@@ -66,11 +67,12 @@ export default async function Writings() {
               target="_blank" rel="noopener noreferrer"
               className="block py-7 border-b border-subtle no-underline group"
             >
-              <div className="flex items-baseline gap-4 mb-3">
+              <div className="flex items-center gap-4 mb-3">
                 <span className="font-mono text-2xs tracking-widest uppercase text-yellow-acid">
                   thinkDecade
                 </span>
-                <span className="font-mono text-2xs text-whisper">
+                <span className="flex items-center gap-1 font-mono text-2xs text-dim">
+                  <IconCalendar className="w-3 h-3 shrink-0" />
                   {post.date}
                 </span>
               </div>

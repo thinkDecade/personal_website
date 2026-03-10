@@ -2,6 +2,7 @@
 import fs   from 'fs'
 import path from 'path'
 import Link from 'next/link'
+import { IconPen, IconRocket, IconBriefcase, IconSignal } from '@/components/icons'
 
 export const dynamic = 'force-dynamic'
 
@@ -38,24 +39,28 @@ const SECTIONS = [
     label: 'Writings',
     desc:  'Long-form thinking. Unresolved questions welcome.',
     num:   '01',
+    Icon:  IconPen,
   },
   {
     href:  '/founder',
     label: 'Founder',
     desc:  'Things I started. Problems I chose to own.',
     num:   '02',
+    Icon:  IconRocket,
   },
   {
     href:  '/work',
     label: 'Work',
     desc:  'Where I have been. What I built.',
     num:   '03',
+    Icon:  IconBriefcase,
   },
   {
     href:  '/social',
     label: 'Social',
     desc:  'Life in Accra. Find me where the thinking happens.',
     num:   '04',
+    Icon:  IconSignal,
   },
 ]
 
@@ -193,7 +198,7 @@ export default function Home() {
           SECTIONS — Quick-nav grid below the fold
       ══════════════════════════════════════════════════════════ */}
       <section className="w-full grid grid-cols-2 md:grid-cols-4 border-t border-subtle">
-        {SECTIONS.map(({ href, label, desc, num }) => (
+        {SECTIONS.map(({ href, label, desc, num, Icon }) => (
           <Link
             key={href}
             href={href}
@@ -204,8 +209,8 @@ export default function Home() {
                        [&:nth-child(4)]:border-b-0
                        md:[&:nth-child(3)]:border-r hover:bg-yellow-acid/5"
           >
-            <span className="font-mono text-[9px] text-whisper tracking-widest uppercase block mb-3">
-              {num}
+            <span className="block mb-4 text-dim group-hover:text-yellow-acid transition-colors">
+              <Icon className="w-5 h-5" />
             </span>
             <p className="font-mono text-xs tracking-widest uppercase text-yellow-acid mb-2 group-hover:underline">
               {label}

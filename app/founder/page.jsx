@@ -2,6 +2,7 @@
 // Showcase of things Muntala has founded — data driven from data/founder.json
 import fs   from 'fs'
 import path from 'path'
+import { IconCalendar } from '@/components/icons'
 
 export const metadata = {
   title: 'Founder',
@@ -102,7 +103,10 @@ export default function Founder() {
 
             {/* Year — right column, visible on md+ */}
             <div className="hidden md:flex flex-col items-end justify-start pt-1">
-              <span className="font-mono text-2xs text-whisper tracking-widest">{year}</span>
+              <span className="flex items-center gap-1 font-mono text-2xs text-dim tracking-widest">
+                <IconCalendar className="w-3 h-3 shrink-0" />
+                {year}
+              </span>
             </div>
           </div>
         ))}

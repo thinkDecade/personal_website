@@ -1,9 +1,9 @@
 // app/social/page.jsx
-// Social presence — platforms (managed via admin), live X feed, events carousel, location.
+// Social presence — platforms (managed via admin), events carousel.
 import fs   from 'fs'
 import path from 'path'
-import EventCarousel from '@/components/EventCarousel'
-import SocialFeed    from '@/components/SocialFeed'
+import EventCarousel                                     from '@/components/EventCarousel'
+import { IconX, IconLinkedIn, IconSubstack, IconGlobe } from '@/components/icons'
 
 export const metadata = {
   title: 'Social',
@@ -18,6 +18,14 @@ function readData(file) {
   } catch {
     return null
   }
+}
+
+const PLATFORM_ICON = {
+  twitter:    IconX,
+  x:          IconX,
+  linkedin:   IconLinkedIn,
+  substack:   IconSubstack,
+  thinkdecade: IconSubstack,
 }
 
 export default function Social() {
@@ -45,54 +53,55 @@ export default function Social() {
       {/* ── Platform links (from data/social.json) ──────────────────────── */}
       {platforms.length > 0 && (
         <div className="mb-20">
-          {platforms.map(({ id, name, handle, url, desc, cadence }, idx) => (
-            <a
-              key={id || idx}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col md:flex-row md:items-start gap-4 md:gap-8
-                         py-8 border-b border-subtle no-underline"
-            >
-              <span className="font-mono text-2xs text-yellow-acid shrink-0 w-8">
-                {String(idx + 1).padStart(2, '0')}
-              </span>
-
-              <div className="flex-1">
-                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                  <h2
-                    className="font-mono font-bold uppercase tracking-tight leading-none
-                               text-fg group-hover:text-yellow-acid transition-colors"
-                    style={{ fontSize: 'clamp(16px, 2.2vw, 26px)' }}
-                  >
-                    {name}
-                  </h2>
-                  <span className="font-mono text-2xs text-whisper">{handle}</span>
-                </div>
-                <p className="font-serif text-[15px] leading-[1.7] text-muted max-w-xl">
-                  {desc}
-                </p>
-              </div>
-
-              <div className="flex md:flex-col items-start md:items-end gap-3 md:gap-2 shrink-0">
-                {cadence && (
-                  <span className="font-mono text-[9px] tracking-widest uppercase text-whisper
-                                   border border-subtle px-2 py-0.5">
-                    {cadence}
-                  </span>
-                )}
-                <span className="font-mono text-xs text-whisper group-hover:text-yellow-acid
-                                 md:mt-auto transition-colors">
-                  ↗
+          {platforms.map(({ id, name, handle, url, desc, cadence }, idx) => {
+            const PlatformIcon = PLATFORM_ICON[id?.toLowerCase()] ?? IconGlobe
+            return (
+              <a
+                key={id || idx}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col md:flex-row md:items-start gap-4 md:gap-8
+                           py-8 border-b border-subtle no-underline"
+              >
+                {/* Platform icon */}
+                <span className="text-dim group-hover:text-yellow-acid transition-colors shrink-0 mt-1">
+                  <PlatformIcon className="w-5 h-5" />
                 </span>
-              </div>
-            </a>
-          ))}
+
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+                    <h2
+                      className="font-mono font-bold uppercase tracking-tight leading-none
+                                 text-fg group-hover:text-yellow-acid transition-colors"
+                      style={{ fontSize: 'clamp(16px, 2.2vw, 26px)' }}
+                    >
+                      {name}
+                    </h2>
+                    <span className="font-mono text-2xs text-whisper">{handle}</span>
+                  </div>
+                  <p className="font-serif text-[15px] leading-[1.7] text-muted max-w-xl">
+                    {desc}
+                  </p>
+                </div>
+
+                <div className="flex md:flex-col items-start md:items-end gap-3 md:gap-2 shrink-0">
+                  {cadence && (
+                    <span className="font-mono text-[9px] tracking-widest uppercase text-whisper
+                                     border border-subtle px-2 py-0.5">
+                      {cadence}
+                    </span>
+                  )}
+                  <span className="font-mono text-xs text-whisper group-hover:text-yellow-acid
+                                   md:mt-auto transition-colors">
+                    ↗
+                  </span>
+                </div>
+              </a>
+            )
+          })}
         </div>
       )}
-
-      {/* ── Live feed — X timeline + LinkedIn card ──────────────────────── */}
-      <SocialFeed />
 
       {/* ── Events & Meetups carousel ───────────────────────────────────── */}
       <EventCarousel events={events} />

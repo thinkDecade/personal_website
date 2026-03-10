@@ -2,6 +2,7 @@
 // Work experience showcase — data driven from data/work.json
 import fs   from 'fs'
 import path from 'path'
+import { IconCalendar, IconMapPin } from '@/components/icons'
 
 export const metadata = {
   title: 'Work',
@@ -79,8 +80,18 @@ export default function Work() {
                 <span className="font-mono text-2xs text-yellow-acid tracking-widest uppercase">
                   {org}
                 </span>
-                <span className="font-mono text-2xs text-whisper">{period}</span>
-                <span className="font-mono text-2xs text-whisper">{location}</span>
+                {period && (
+                  <span className="flex items-center gap-1 font-mono text-2xs text-dim">
+                    <IconCalendar className="w-3 h-3 shrink-0" />
+                    {period}
+                  </span>
+                )}
+                {location && (
+                  <span className="flex items-center gap-1 font-mono text-2xs text-dim">
+                    <IconMapPin className="w-3 h-3 shrink-0" />
+                    {location}
+                  </span>
+                )}
               </div>
 
               {/* Points */}
