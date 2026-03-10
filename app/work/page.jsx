@@ -1,8 +1,7 @@
 // app/work/page.jsx
 // Work experience showcase — data driven from data/work.json
-import fs   from 'fs'
-import path from 'path'
 import { IconCalendar, IconMapPin } from '@/components/icons'
+import { readSection }              from '@/lib/store'
 
 export const metadata = {
   title: 'Work',
@@ -11,25 +10,17 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic'
 
-function readWork() {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'work.json'), 'utf8'))
-  } catch {
-    return []
-  }
-}
-
 const TYPE_CLASSES = {
-  FOUNDER:   'border-yellow-acid text-yellow-acid',
+  FOUNDER:     'border-yellow-acid text-yellow-acid',
   'FULL-TIME': 'border-emerald-500/50 text-emerald-400',
-  CONTRACT:  'border-blue-500/50 text-blue-400',
-  ADVISORY:  'border-purple-500/50 text-purple-400',
-  BOARD:     'border-mid text-dim',
-  ROLE:      'border-mid text-dim',
+  CONTRACT:    'border-blue-500/50 text-blue-400',
+  ADVISORY:    'border-purple-500/50 text-purple-400',
+  BOARD:       'border-mid text-dim',
+  ROLE:        'border-mid text-dim',
 }
 
-export default function Work() {
-  const EXPERIENCE = readWork()
+export default async function Work() {
+  const EXPERIENCE = await readSection('work') ?? []
 
   return (
     <div className="w-full max-w-4xl mx-auto px-6 md:px-14 py-16">

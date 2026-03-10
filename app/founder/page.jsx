@@ -1,8 +1,7 @@
 // app/founder/page.jsx
 // Showcase of things Muntala has founded — data driven from data/founder.json
-import fs   from 'fs'
-import path from 'path'
 import { IconCalendar } from '@/components/icons'
+import { readSection }  from '@/lib/store'
 
 export const metadata = {
   title: 'Founder',
@@ -11,14 +10,6 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic'
 
-function readFounder() {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'founder.json'), 'utf8'))
-  } catch {
-    return []
-  }
-}
-
 const STATUS_CLASSES = {
   ACTIVE:   'border-yellow-acid text-yellow-acid',
   BUILDING: 'border-mid text-dim',
@@ -26,8 +17,8 @@ const STATUS_CLASSES = {
   ARCHIVED: 'border-mid text-whisper',
 }
 
-export default function Founder() {
-  const FOUNDED = readFounder()
+export default async function Founder() {
+  const FOUNDED = await readSection('founder') ?? []
 
   return (
     <div className="w-full max-w-5xl mx-auto px-6 md:px-14 py-16">

@@ -1,14 +1,5 @@
-import fs from 'fs'
-import path from 'path'
-import Link from 'next/link'
-
-function readJson(file) {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', file), 'utf8'))
-  } catch {
-    return null
-  }
-}
+import Link            from 'next/link'
+import { readSection } from '@/lib/store'
 
 function StatCard({ href, label, count, icon, status }) {
   return (
@@ -42,17 +33,19 @@ function QuickLink({ href, label, desc }) {
   )
 }
 
-export default function AdminDashboard() {
-  const events  = readJson('events.json')
-  const founder = readJson('founder.json')
-  const work    = readJson('work.json')
-  const content = readJson('content.json')
-  const social  = readJson('social.json')
+export default async function AdminDashboard() {
+  const [events, founder, work, content, social] = await Promise.all([
+    readSection('events'),
+    readSection('founder'),
+    readSection('work'),
+    readSection('content'),
+    readSection('social'),
+  ])
 
-  const eventCount    = Array.isArray(events)              ? events.length  : 0
-  const projectCount  = Array.isArray(founder)             ? founder.length : 0
-  const workCount     = Array.isArray(work)                ? work.length    : 0
-  const platformCount = Array.isArray(social?.platforms)   ? social.platforms.filter(p => p.visible !== false).length : 0
+  const eventCount    = Array.isArray(events)            ? events.length  : 0
+  const projectCount  = Array.isArray(founder)           ? founder.length : 0
+  const workCount     = Array.isArray(work)              ? work.length    : 0
+  const platformCount = Array.isArray(social?.platforms) ? social.platforms.filter(p => p.visible !== false).length : 0
 
   const activeProjects = Array.isArray(founder)
     ? founder.filter(p => p.status === 'ACTIVE' || p.status === 'BUILDING').length

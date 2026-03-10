@@ -1,21 +1,11 @@
 // app/page.jsx — Home · Bold orange hero, full-colour photo, editorial type
-import fs   from 'fs'
-import path from 'path'
 import Link from 'next/link'
 import { IconPen, IconRocket, IconBriefcase, IconSignal } from '@/components/icons'
+import { readSection } from '@/lib/store'
 
 export const dynamic = 'force-dynamic'
 
-function readHero() {
-  try {
-    const raw = fs.readFileSync(path.join(process.cwd(), 'data', 'content.json'), 'utf8')
-    return JSON.parse(raw).hero
-  } catch {
-    return null
-  }
-}
-
-// Fallback defaults if content.json is missing
+// Fallback defaults if content data is missing
 const HERO_DEFAULTS = {
   headline1:    'Thinking,',
   headline2:    'building.',
@@ -64,13 +54,12 @@ const SECTIONS = [
   },
 ]
 
-export default function Home() {
-  const heroData = readHero() || HERO_DEFAULTS
+export default async function Home() {
+  const content  = await readSection('content')
+  const heroData = content?.hero ?? null
   const hero     = { ...HERO_DEFAULTS, ...heroData }
 
-  const roles    = Array.isArray(hero.roles) ? hero.roles : HERO_DEFAULTS.roles
-  // Last role line gets the accent colour
-  const lastRole = roles[roles.length - 1]
+  const roles = Array.isArray(hero.roles) ? hero.roles : HERO_DEFAULTS.roles
 
   return (
     <>

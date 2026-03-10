@@ -1,9 +1,8 @@
-// app/api/admin/data/[section]/route.js — authenticated read + write of JSON data files
-import { readFileSync, writeFileSync, existsSync } from 'fs'
-import { join }                                     from 'path'
-import { NextResponse }                             from 'next/server'
-import { revalidatePath }                           from 'next/cache'
-import { verifyAdminToken, getAdminToken }          from '@/lib/auth'
+// app/api/admin/data/[section]/route.js — authenticated read + write of JSON data
+import { NextResponse }                    from 'next/server'
+import { revalidatePath }                  from 'next/cache'
+import { verifyAdminToken, getAdminToken } from '@/lib/auth'
+import { readSection, writeSection }       from '@/lib/store'
 
 const ALLOWED  = ['content', 'events', 'founder', 'work', 'social']
 const PATH_MAP = {
@@ -14,15 +13,11 @@ const PATH_MAP = {
   social:  ['/social', '/admin/social'],
 }
 
-function dataPath(section) {
-  return join(process.cwd(), 'data', `${section}.json`)
-}
-
 async function requireAuth(request) {
   return verifyAdminToken(getAdminToken(request))
 }
 
-// ── GET — read a data file ───────────────────────────────────────────────────
+// ── GET — read a data section ─────────────────────────────────────────────────
 export async function GET(request, { params }) {
   if (!await requireAuth(request))
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -31,14 +26,14 @@ export async function GET(request, { params }) {
   if (!ALLOWED.includes(section))
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
-  const file = dataPath(section)
-  if (!existsSync(file))
-    return NextResponse.json({ error: 'File missing' }, { status: 404 })
+  const data = await readSection(section)
+  if (data === null)
+    return NextResponse.json({ error: 'No data found' }, { status: 404 })
 
-  return NextResponse.json(JSON.parse(readFileSync(file, 'utf-8')))
+  return NextResponse.json(data)
 }
 
-// ── POST — overwrite a data file ─────────────────────────────────────────────
+// ── POST — overwrite a data section ──────────────────────────────────────────
 export async function POST(request, { params }) {
   if (!await requireAuth(request))
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -48,7 +43,7 @@ export async function POST(request, { params }) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
   const body = await request.json()
-  writeFileSync(dataPath(section), JSON.stringify(body, null, 2), 'utf-8')
+  await writeSection(section, body)
 
   // Revalidate all related pages so changes appear immediately
   ;(PATH_MAP[section] || []).forEach(p => revalidatePath(p))

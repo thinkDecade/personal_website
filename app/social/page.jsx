@@ -1,9 +1,8 @@
 // app/social/page.jsx
 // Social presence — platforms (managed via admin), events carousel.
-import fs   from 'fs'
-import path from 'path'
 import EventCarousel                                     from '@/components/EventCarousel'
 import { IconX, IconLinkedIn, IconSubstack, IconGlobe } from '@/components/icons'
+import { readSection }                                   from '@/lib/store'
 
 export const metadata = {
   title: 'Social',
@@ -12,25 +11,17 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic'
 
-function readData(file) {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', file), 'utf8'))
-  } catch {
-    return null
-  }
-}
-
 const PLATFORM_ICON = {
-  twitter:    IconX,
-  x:          IconX,
-  linkedin:   IconLinkedIn,
-  substack:   IconSubstack,
+  twitter:     IconX,
+  x:           IconX,
+  linkedin:    IconLinkedIn,
+  substack:    IconSubstack,
   thinkdecade: IconSubstack,
 }
 
-export default function Social() {
-  const events    = readData('events.json') ?? []
-  const social    = readData('social.json')
+export default async function Social() {
+  const events    = await readSection('events')  ?? []
+  const social    = await readSection('social')
   const platforms = (social?.platforms ?? []).filter(p => p.visible !== false)
 
   return (
