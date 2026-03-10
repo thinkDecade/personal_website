@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@netlify/plugin-nextjs": "^5.15.9",
     "autoprefixer": "^10",
     "eslint": "^9",
     "eslint-config-next": "^15.2.0",
