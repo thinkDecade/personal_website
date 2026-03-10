@@ -92,7 +92,7 @@ export default function EventCarousel({ events = [] }) {
           <button
             onClick={() => manualNav(prev)}
             aria-label="Previous"
-            className="w-9 h-9 border border-subtle flex items-center justify-center
+            className="w-11 h-11 border border-subtle flex items-center justify-center
                        font-mono text-dim hover:text-fg hover:border-fg transition-colors"
           >
             ←
@@ -103,7 +103,7 @@ export default function EventCarousel({ events = [] }) {
           <button
             onClick={() => manualNav(next)}
             aria-label="Next"
-            className="w-9 h-9 border border-subtle flex items-center justify-center
+            className="w-11 h-11 border border-subtle flex items-center justify-center
                        font-mono text-dim hover:text-fg hover:border-fg transition-colors"
           >
             →
@@ -186,34 +186,36 @@ export default function EventCarousel({ events = [] }) {
       </div>
 
       {/* Progress dots — active one animates across like a timer */}
+      {/* Each button has py-[19px] so total height = 6px dot + 38px padding = 44px touch target */}
       <div className="flex items-center gap-2 mt-5">
         {EVENTS.map((_, i) => (
           <button
             key={i}
             onClick={() => manualNav(() => setCurrent(i))}
             aria-label={`Go to slide ${i + 1}`}
-            className="relative overflow-hidden transition-all duration-300"
-            style={{
-              width:        i === current ? '40px' : '6px',
-              height:       '6px',
-              borderRadius: '3px',
-              background:   'rgb(var(--color-fg)/0.15)',
-              flexShrink:   0,
-            }}
+            className="relative flex items-center py-[19px] transition-all duration-300"
+            style={{ flexShrink: 0 }}
           >
-            {i === current && (
-              <span
-                className="absolute inset-y-0 left-0 rounded-[3px]"
-                style={{
-                  background:  '#F5A100',
-                  width:       paused ? '100%' : '0%',
-                  animation:   paused ? 'none' : `fillBar ${INTERVAL_MS}ms linear forwards`,
-                }}
-              />
-            )}
-            {i !== current && (
-              <span className="absolute inset-0 rounded-[3px]" style={{ background: 'rgb(var(--color-fg)/0.15)' }} />
-            )}
+            <span
+              className="relative overflow-hidden block transition-all duration-300"
+              style={{
+                width:        i === current ? '40px' : '6px',
+                height:       '6px',
+                borderRadius: '3px',
+                background:   'rgb(var(--color-fg)/0.15)',
+              }}
+            >
+              {i === current && (
+                <span
+                  className="absolute inset-y-0 left-0 rounded-[3px]"
+                  style={{
+                    background:  '#F5A100',
+                    width:       paused ? '100%' : '0%',
+                    animation:   paused ? 'none' : `fillBar ${INTERVAL_MS}ms linear forwards`,
+                  }}
+                />
+              )}
+            </span>
           </button>
         ))}
       </div>

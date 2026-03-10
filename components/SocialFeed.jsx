@@ -46,12 +46,12 @@ function TwitterFeed() {
         ref={containerRef}
         key={theme}   /* re-mount when theme changes so widget re-renders cleanly */
         className="flex-1 border border-subtle overflow-hidden"
-        style={{ minHeight: '560px' }}
+        style={{ minHeight: 'clamp(380px, 55vh, 560px)' }}
       >
         <a
           className="twitter-timeline"
           data-theme={theme}
-          data-height="560"
+          data-height="500"
           data-chrome="noheader nofooter noborders transparent"
           href="https://twitter.com/muntala_piniyin?ref_src=twsrc%5Etfw"
         >

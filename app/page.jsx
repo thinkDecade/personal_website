@@ -73,7 +73,7 @@ export default function Home() {
           HERO — Bold orange full-bleed · 3D photo · giant italic type
       ══════════════════════════════════════════════════════════ */}
       <section
-        className="relative w-full h-[calc(100vh-64px)] min-h-[600px] overflow-hidden"
+        className="relative w-full h-[calc(100vh-64px)] min-h-[500px] overflow-hidden"
         style={{ background: 'var(--hero-bg)' }}
       >
 
@@ -110,7 +110,7 @@ export default function Home() {
             style={{
               aspectRatio: '3/4',
               maxHeight: '700px',
-              maxWidth: '525px',
+              maxWidth: 'min(525px, 90vw)',
               transform: 'perspective(1000px) rotateY(-6deg) rotateX(2deg)',
               transformStyle: 'preserve-3d',
               boxShadow: '28px 36px 72px rgba(0,0,0,0.30), 8px 12px 24px rgba(0,0,0,0.18)',
@@ -196,8 +196,11 @@ export default function Home() {
           <Link
             key={href}
             href={href}
-            className="group relative p-6 md:p-8 border-r border-subtle last:border-r-0 no-underline
-                       [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r [&:nth-child(3)]:border-r-0
+            className="group relative p-6 md:p-8 border-r border-b border-subtle no-underline
+                       last:border-r-0 md:border-b-0
+                       [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r
+                       [&:nth-child(3)]:border-r-0 [&:nth-child(3)]:border-b-0
+                       [&:nth-child(4)]:border-b-0
                        md:[&:nth-child(3)]:border-r hover:bg-yellow-acid/5"
           >
             <span className="font-mono text-[9px] text-whisper tracking-widest uppercase block mb-3">
