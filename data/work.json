@@ -1,0 +1,39 @@
+[
+  {
+    "id": "thinkdecade-founder",
+    "role": "Founder & Principal Writer",
+    "org": "thinkDecade + Sovereign Frontier",
+    "period": "2023 — Present",
+    "location": "Accra, Ghana",
+    "type": "FOUNDER",
+    "points": [
+      "Building a dual-publication research platform exploring AI, crypto rails, and economic sovereignty.",
+      "Writing long-form essays at the intersection of technology, policy, and African economic futures.",
+      "Hosting the Sovereign Frontier podcast examining decentralised infrastructure for emerging markets."
+    ]
+  },
+  {
+    "id": "role-2",
+    "role": "[ Your Role ]",
+    "org": "[ Organisation ]",
+    "period": "20XX — 20XX",
+    "location": "Location",
+    "type": "ROLE",
+    "points": [
+      "Update this section with your actual experience.",
+      "Describe the key things you built, led, or influenced.",
+      "Keep it specific — outcomes over responsibilities."
+    ]
+  },
+  {
+    "id": "role-3",
+    "role": "[ Your Role ]",
+    "org": "[ Organisation ]",
+    "period": "20XX — 20XX",
+    "location": "Location",
+    "type": "ROLE",
+    "points": [
+      "Add another work experience entry here."
+    ]
+  }
+]

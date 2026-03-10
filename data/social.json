@@ -1,0 +1,31 @@
+{
+  "platforms": [
+    {
+      "id": "twitter",
+      "name": "X / Twitter",
+      "handle": "@muntala_piniyin",
+      "url": "https://x.com/muntala_piniyin",
+      "desc": "Thinking out loud. Fragments, threads, and half-formed ideas before they become essays.",
+      "cadence": "Daily",
+      "visible": true
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "handle": "Muntala Piniyini",
+      "url": "https://www.linkedin.com/in/muntala-piniyini/",
+      "desc": "Professional updates, project announcements, and the occasional long-form take.",
+      "cadence": "Weekly",
+      "visible": true
+    },
+    {
+      "id": "thinkdecade",
+      "name": "thinkDecade",
+      "handle": "thinkdecade.substack.com",
+      "url": "https://thinkdecade.substack.com",
+      "desc": "Long-form essays on AI, economics, and human agency. The slow version of the thinking.",
+      "cadence": "Bi-weekly",
+      "visible": true
+    }
+  ]
+}

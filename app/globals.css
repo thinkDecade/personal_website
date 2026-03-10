@@ -1,0 +1,78 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme tokens ──────────────────────────────────────────────────────────
+   Space-separated RGB values so Tailwind opacity modifiers work:
+   e.g. text-fg/85 → rgb(var(--color-fg) / 0.85)
+
+   --hero-bg:     background of the full-bleed hero section
+   --hero-accent: accent colour on top of hero bg
+                  light = white  (on orange bg)
+                  dark  = orange (on near-black bg)
+──────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Default = light */
+  --color-bg:    255 255 255;     /* clean white body */
+  --color-fg:    15 15 15;
+  --hero-bg:     #F5A100;         /* bold orange — matches photo background */
+  --hero-accent: #ffffff;         /* white pops on orange */
+}
+
+[data-theme="light"] {
+  --color-bg:    255 255 255;
+  --color-fg:    15 15 15;
+  --hero-bg:     #F5A100;
+  --hero-accent: #ffffff;
+}
+
+[data-theme="dark"] {
+  --color-bg:    10 10 10;
+  --color-fg:    245 245 245;
+  --hero-bg:     radial-gradient(ellipse at 50% 35%, #2a1500 0%, #0d0800 40%, #0a0a0a 65%);
+  --hero-accent: #F5A100;         /* orange glows on dark bg */
+}
+
+@layer base {
+  html {
+    background-color: rgb(var(--color-bg));
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Selection — light theme */
+  ::selection {
+    background-color: #F5A100;
+    color: #ffffff;
+  }
+
+  /* Selection — dark theme */
+  [data-theme="dark"] ::selection {
+    background-color: #F5A100;
+    color: #0a0a0a;
+  }
+
+  a {
+    @apply underline underline-offset-2;
+  }
+
+  button {
+    @apply cursor-pointer bg-transparent border-0 p-0;
+  }
+}
+
+@layer utilities {
+  .text-muted    { color: rgb(var(--color-fg) / 0.60); }
+  .text-dim      { color: rgb(var(--color-fg) / 0.35); }
+  .text-whisper  { color: rgb(var(--color-fg) / 0.20); }
+
+  .border-subtle { border-color: rgb(var(--color-fg) / 0.10); }
+  .border-mid    { border-color: rgb(var(--color-fg) / 0.20); }
+
+  .label {
+    @apply font-mono text-2xs tracking-widest uppercase;
+  }
+}

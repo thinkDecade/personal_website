@@ -1,0 +1,29 @@
+[
+  {
+    "id": "thinkdecade",
+    "name": "thinkDecade",
+    "year": "2023",
+    "status": "ACTIVE",
+    "url": "https://thinkdecade.substack.com",
+    "desc": "A long-form research and writing platform at the intersection of AI, crypto rails, and human agency. Exploring what it means to build identity and wealth in the age of intelligent machines.",
+    "tags": ["Writing", "Research", "AI", "Economics"]
+  },
+  {
+    "id": "sovereign-frontier",
+    "name": "Sovereign Frontier",
+    "year": "2023",
+    "status": "ACTIVE",
+    "url": "https://sovereignfrontier.substack.com",
+    "desc": "A newsletter and podcast examining how emerging economies — particularly in West Africa — can architect their sovereignty in the digital age through crypto, policy, and institutional design.",
+    "tags": ["Newsletter", "Podcast", "Policy", "West Africa"]
+  },
+  {
+    "id": "next",
+    "name": "[ Next ]",
+    "year": "2025 —",
+    "status": "BUILDING",
+    "url": "",
+    "desc": "Something in the making. Thinking about AI agents, local infrastructure, and what ownership looks like for Ghanaians online. More soon.",
+    "tags": ["AI Agents", "Infrastructure", "Ghana"]
+  }
+]
