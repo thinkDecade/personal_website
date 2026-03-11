@@ -42,8 +42,19 @@ export async function POST(request, { params }) {
   if (!ALLOWED.includes(section))
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
-  const body = await request.json()
-  await writeSection(section, body)
+  let body
+  try {
+    body = await request.json()
+  } catch {
+    return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
+  }
+
+  try {
+    await writeSection(section, body)
+  } catch (err) {
+    console.error('[api/data] writeSection failed:', err.message)
+    return NextResponse.json({ error: err.message || 'Save failed' }, { status: 500 })
+  }
 
   // Revalidate all related pages so changes appear immediately
   ;(PATH_MAP[section] || []).forEach(p => revalidatePath(p))
