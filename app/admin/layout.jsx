@@ -32,8 +32,8 @@ export default function AdminLayout({ children }) {
       <aside className="w-56 flex-shrink-0 border-r border-white/10 flex flex-col">
         {/* Logo */}
         <div className="h-16 flex items-center px-6 border-b border-white/10">
-          <Link href="/" className="font-serif italic text-xl text-white tracking-tight hover:text-[#F5A100] transition-colors">
-            Muntala.
+          <Link href="/" className="font-serif italic font-bold text-xl text-white tracking-tight hover:text-[#F5A100] transition-colors">
+            MPS<span className="text-[#F5A100]">.</span>
           </Link>
           <span className="ml-2 text-[10px] tracking-[0.2em] text-neutral-600 uppercase self-end mb-0.5">admin</span>
         </div>

@@ -40,7 +40,7 @@ function LoginForm() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="mb-10 text-center">
-          <span className="font-serif italic text-3xl text-white tracking-tight">Muntala.</span>
+          <span className="font-serif italic font-bold text-3xl text-white tracking-tight">MPS<span className="text-[#F5A100]">.</span></span>
           <p className="text-[11px] tracking-[0.2em] text-neutral-500 uppercase mt-1">Admin</p>
         </div>
 

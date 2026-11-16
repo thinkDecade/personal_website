@@ -27,9 +27,10 @@ export default function Nav() {
         <Link
           href="/"
           onClick={close}
-          className="font-serif italic text-[22px] leading-none text-fg no-underline shrink-0"
+          aria-label="Muntala Piniyini Shaibu — home"
+          className="font-serif italic font-bold text-[24px] leading-none tracking-[-0.02em] text-fg no-underline shrink-0"
         >
-          Muntala.
+          MPS<span className="text-yellow-acid">.</span>
         </Link>
 
         {/* ── Desktop nav links — centred ───────────────────────────── */}
