@@ -10,6 +10,44 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic'
 
+// Speaking + credentials — edit here (not managed by the admin CMS)
+const SPEAKING = [
+  { year: '2026', event: 'Digital Assets Summit Africa',  role: 'Panel Moderator', topic: 'Digital Finance in Action: From Experimentation to Commercial Deployment' },
+  { year: '2026', event: 'Accra Stablecoin Conference',   role: 'Panel Speaker',   topic: "Building Africa's Stablecoin Payment Infrastructure" },
+  { year: '2024', event: 'Max Impact Podcast',            role: 'Featured Guest',  topic: 'Public Goods Africa' },
+  { year: '2023', event: 'Africa Web3 Summit',            role: 'Panel Speaker',   topic: 'Society on Chain' },
+  { year: '2023', event: 'Bankless Africa × ITC',         role: 'Featured Speaker', topic: 'Understanding Web3 and Its Potential for Businesses' },
+  { year: '2022', event: 'Ghana Crypto & DeFi Summit',    role: 'Conference Speaker', topic: '' },
+]
+
+const CREDENTIALS = [
+  { year: '2026', name: 'Level 2 Award in Fundamentals of Financial Services', org: 'Chartered Institute for Securities & Investment (CISI)' },
+  { year: '2026', name: 'AI & Agentic Systems — Claude Code, Model Context Protocol, Subagents', org: 'Anthropic Academy' },
+  { year: '2025', name: 'Founder Academy', org: 'ALX' },
+  { year: '2020', name: 'BSc Accounting', org: 'University of Professional Studies, Accra (UPSA)' },
+  { year: '—',    name: 'Future of Payment Technologies · Financial Markets · Regulatory Compliance', org: 'University of Michigan · Yale · University of Pennsylvania' },
+]
+
+function ListSection({ label, title, rows }) {
+  return (
+    <section className="pt-14 border-b border-subtle pb-12">
+      <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-3">{label}</p>
+      <h2 className="font-serif text-[clamp(22px,3vw,32px)] leading-[1.15] font-bold mb-8">{title}</h2>
+      <ul>
+        {rows.map((r, i) => (
+          <li key={i} className="grid grid-cols-[56px_1fr] gap-4 py-4 border-t border-subtle">
+            <span className="font-mono text-2xs text-dim pt-[3px]">{r.year}</span>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-fg">{r.primary}</p>
+              {r.secondary && <p className="font-serif text-[15px] leading-[1.6] text-muted mt-1">{r.secondary}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 const TYPE_CLASSES = {
   FOUNDER:     'border-yellow-acid text-yellow-acid',
   'FULL-TIME': 'border-emerald-500/50 text-emerald-400',
@@ -100,6 +138,22 @@ export default async function Work() {
           </div>
         ))}
       </div>
+
+      <ListSection
+        label="Speaking"
+        title="Rooms I've been in."
+        rows={SPEAKING.map(s => ({
+          year: s.year,
+          primary: `${s.event} — ${s.role}`,
+          secondary: s.topic,
+        }))}
+      />
+
+      <ListSection
+        label="Education & certifications"
+        title="Where the foundations came from."
+        rows={CREDENTIALS.map(c => ({ year: c.year, primary: c.name, secondary: c.org }))}
+      />
 
       {/* Download / contact prompt */}
       <div className="pt-12 flex flex-wrap gap-6 items-center">

@@ -1,39 +1,88 @@
 [
   {
-    "id": "thinkdecade-founder",
-    "role": "Founder & Principal Writer",
-    "org": "thinkDecade + Sovereign Frontier",
-    "period": "2023 — Present",
+    "id": "yieldpaper",
+    "role": "Founder & CEO",
+    "org": "Yieldpaper",
+    "period": "2026 — Present",
     "location": "Accra, Ghana",
     "type": "FOUNDER",
     "points": [
-      "Building a dual-publication research platform exploring AI, crypto rails, and economic sovereignty.",
-      "Writing long-form essays at the intersection of technology, policy, and African economic futures.",
-      "Hosting the Sovereign Frontier podcast examining decentralised infrastructure for emerging markets."
+      "Building financial infrastructure that makes capital more productive — stablecoin liquidity and settlement, asset tokenisation, onchain capital markets, and agentic finance.",
+      "Leading strategy, product, and partnerships with banks, asset managers, enterprise treasuries, payment providers, and VASPs."
     ]
   },
   {
-    "id": "role-2",
-    "role": "[ Your Role ]",
-    "org": "[ Organisation ]",
-    "period": "20XX — 20XX",
-    "location": "Location",
-    "type": "ROLE",
+    "id": "consulting",
+    "role": "Principal Consultant",
+    "org": "Independent",
+    "period": "2025 — Present",
+    "location": "Ghana · Nigeria · South Africa",
+    "type": "ADVISORY",
     "points": [
-      "Update this section with your actual experience.",
-      "Describe the key things you built, led, or influenced.",
-      "Keep it specific — outcomes over responsibilities."
+      "Advising fintechs on deploying stablecoin settlement across African markets — licensing, FX dynamics, counterparty risk, and jurisdictional compliance.",
+      "Co-leading digital-asset strategy and tokenised product development, from institutional client acquisition to treasury operations across stablecoin and fiat liquidity.",
+      "Researching VASP frameworks and licensing pathways, and working with regulators on how digital-asset policy gets designed and implemented."
     ]
   },
   {
-    "id": "role-3",
-    "role": "[ Your Role ]",
-    "org": "[ Organisation ]",
-    "period": "20XX — 20XX",
-    "location": "Location",
-    "type": "ROLE",
+    "id": "sovereign-frontier",
+    "role": "Founder, Host & Editor",
+    "org": "Sovereign Frontier (formerly Bankless Africa)",
+    "period": "2021 — 2024",
+    "location": "Accra, Ghana",
+    "type": "FOUNDER",
     "points": [
-      "Add another work experience entry here."
+      "Built one of Africa's most recognised digital-asset media and research platforms — hosting, producing, writing, and editing the podcast and newsletter end to end.",
+      "Interviewed global industry leaders, including the CEO of Tether, for listeners in more than 100 countries.",
+      "Convened fintechs, builders, regulators, and institutions across Ghana, Nigeria, Kenya, and South Africa — and onboarded thousands into the digital-asset economy."
+    ]
+  },
+  {
+    "id": "public-good-africa",
+    "role": "Founder",
+    "org": "Public Good Africa",
+    "period": "2024 — 2025",
+    "location": "Africa",
+    "type": "FOUNDER",
+    "points": [
+      "Designed a digital-asset-native funding mechanism for public goods across Africa that helped more than 50 impact projects secure grant funding."
+    ]
+  },
+  {
+    "id": "banklessdao",
+    "role": "Governance, Operations & Treasury",
+    "org": "BanklessDAO (now BlackFlagDAO)",
+    "period": "2021 — 2024",
+    "location": "Remote",
+    "type": "BOARD",
+    "points": [
+      "Project Manager, Guild Coordinator, Governance Lead, and Grants Committee member — running a decentralised institution without a head office.",
+      "Evaluated funding proposals, shaped treasury allocation, and oversaw funded initiatives on the Grants Committee.",
+      "Ran New Joiner Sessions for about 18 months, onboarding contributors into the DAO.",
+      "Advised digital-native organisations on treasury, liquidity, staking economics, and tokenomics."
+    ]
+  },
+  {
+    "id": "ideasflip",
+    "role": "Founder & Principal",
+    "org": "ideasflip",
+    "period": "2019 — Present",
+    "location": "Ghana",
+    "type": "FOUNDER",
+    "points": [
+      "Built an agency banking and mobile money network of 10 service locations across Ghanaian cities — bringing deposits, withdrawals, and cash-in/cash-out closer to people banks don't reach.",
+      "Partnered with Fidelity Bank for agency banking, extending service to customers of other major banks and Ghana's mobile money networks."
+    ]
+  },
+  {
+    "id": "wintrack-homes",
+    "role": "Core Team",
+    "org": "Wintrack Homes",
+    "period": "2015 — 2019",
+    "location": "Ghana",
+    "type": "FULL-TIME",
+    "points": [
+      "Wore four hats at once — project coordinator, logistics manager, accountant, and board secretary."
     ]
   }
 ]

@@ -20,10 +20,10 @@ export const metadata = {
     default: 'thinkDecade',
     template: '%s — thinkDecade',
   },
-  description: 'Muntala Piniyini — AI agents, crypto rails, and the future of being human.',
+  description: 'Muntala Piniyini — financial infrastructure, onchain finance, AI agents, and the future of being human.',
   openGraph: {
     title: 'thinkDecade',
-    description: 'Muntala Piniyini — AI agents, crypto rails, and the future of being human.',
+    description: 'Muntala Piniyini — financial infrastructure, onchain finance, AI agents, and the future of being human.',
     url: 'https://thinkdecade.xyz',
     siteName: 'thinkDecade',
   },

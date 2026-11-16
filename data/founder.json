@@ -1,5 +1,14 @@
 [
   {
+    "id": "yieldpaper",
+    "name": "Yieldpaper",
+    "year": "2026",
+    "status": "BUILDING",
+    "url": "https://yieldpaper.co",
+    "desc": "Financial infrastructure for making capital more productive. Stablecoin liquidity and settlement, asset tokenisation, onchain capital markets, and agentic finance — built for banks, asset managers, treasuries, and payment providers in global and emerging markets.",
+    "tags": ["Stablecoins", "Tokenisation", "Onchain Finance", "Agentic Finance"]
+  },
+  {
     "id": "thinkdecade",
     "name": "thinkDecade",
     "year": "2023",
@@ -9,21 +18,30 @@
     "tags": ["Writing", "Research", "AI", "Economics"]
   },
   {
-    "id": "sovereign-frontier",
-    "name": "Sovereign Frontier",
-    "year": "2023",
+    "id": "ideasflip",
+    "name": "ideasflip",
+    "year": "2019",
     "status": "ACTIVE",
-    "url": "https://sovereignfrontier.substack.com",
-    "desc": "A newsletter and podcast examining how emerging economies — particularly in West Africa — can architect their sovereignty in the digital age through crypto, policy, and institutional design.",
-    "tags": ["Newsletter", "Podcast", "Policy", "West Africa"]
+    "url": "https://ideasflip.com",
+    "desc": "An agency banking and mobile money network — 10 service locations across Ghanaian cities, in partnership with Fidelity Bank. Banking where the bank branches aren't.",
+    "tags": ["Agency Banking", "Mobile Money", "Financial Access", "Ghana"]
   },
   {
-    "id": "next",
-    "name": "[ Next ]",
-    "year": "2025 —",
-    "status": "BUILDING",
+    "id": "sovereign-frontier",
+    "name": "Sovereign Frontier",
+    "year": "2021 — 2024",
+    "status": "ARCHIVED",
+    "url": "https://sovereignfrontier.substack.com",
+    "desc": "Started as Bankless Africa. A digital-asset media and research platform — podcast and newsletter on stablecoins, regulation, and market structure, with listeners in more than 100 countries and guests including the CEO of Tether.",
+    "tags": ["Podcast", "Newsletter", "Digital Assets", "Africa"]
+  },
+  {
+    "id": "public-good-africa",
+    "name": "Public Good Africa",
+    "year": "2024 — 2025",
+    "status": "ARCHIVED",
     "url": "",
-    "desc": "Something in the making. Thinking about AI agents, local infrastructure, and what ownership looks like for Ghanaians online. More soon.",
-    "tags": ["AI Agents", "Infrastructure", "Ghana"]
+    "desc": "A digital-asset-native way to fund public goods across Africa. Helped more than 50 impact projects secure grant funding.",
+    "tags": ["Public Goods", "Grants", "Impact"]
   }
 ]
