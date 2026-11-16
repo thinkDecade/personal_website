@@ -1,29 +1,71 @@
 [
   {
-    "id": "thinkdecade",
-    "name": "thinkDecade",
-    "year": "2023",
-    "status": "ACTIVE",
-    "url": "https://thinkdecade.substack.com",
-    "desc": "A long-form research and writing platform at the intersection of AI, crypto rails, and human agency. Exploring what it means to build identity and wealth in the age of intelligent machines.",
-    "tags": ["Writing", "Research", "AI", "Economics"]
+    "id": "yieldpaper",
+    "name": "Yieldpaper",
+    "year": "2026",
+    "status": "BUILDING",
+    "url": "https://yieldpaper.co",
+    "desc": "Financial infrastructure for making capital more productive. Stablecoin liquidity and settlement, asset tokenisation, onchain capital markets, and agentic finance — built for banks, asset managers, treasuries, and payment providers in global and emerging markets.",
+    "tags": [
+      "Stablecoins",
+      "Tokenisation",
+      "Onchain Finance",
+      "Agentic Finance"
+    ]
   },
   {
     "id": "sovereign-frontier",
     "name": "Sovereign Frontier",
-    "year": "2023",
-    "status": "ACTIVE",
+    "year": "2021 — 2024",
+    "status": "ARCHIVED",
     "url": "https://sovereignfrontier.substack.com",
-    "desc": "A newsletter and podcast examining how emerging economies — particularly in West Africa — can architect their sovereignty in the digital age through crypto, policy, and institutional design.",
-    "tags": ["Newsletter", "Podcast", "Policy", "West Africa"]
+    "desc": "Started as Bankless Africa. A digital-asset media and research platform — podcast and newsletter on stablecoins, regulation, and market structure, with listeners in more than 100 countries and guests including the CEO of Tether.",
+    "tags": [
+      "Podcast",
+      "Newsletter",
+      "Digital Assets",
+      "Africa"
+    ]
   },
   {
-    "id": "next",
-    "name": "[ Next ]",
-    "year": "2025 —",
-    "status": "BUILDING",
+    "id": "library-protocol",
+    "name": "Library Protocol",
+    "year": "2025",
+    "status": "ACTIVE",
+    "url": "https://libraryprotocol.xyz",
+    "desc": "An open-source, onchain book-sharing network. Put a personal, school, or community library onchain, then lend and borrow books across borders — secured by smart contracts and a reputation system instead of a central platform. An open-source public good in the Gitcoin Grants ecosystem.",
+    "tags": [
+      "Open Source",
+      "Books",
+      "Onchain",
+      "Public Goods"
+    ]
+  },
+  {
+    "id": "public-good-africa",
+    "name": "Public Good Africa",
+    "year": "2024 — 2025",
+    "status": "ARCHIVED",
     "url": "",
-    "desc": "Something in the making. Thinking about AI agents, local infrastructure, and what ownership looks like for Ghanaians online. More soon.",
-    "tags": ["AI Agents", "Infrastructure", "Ghana"]
+    "desc": "A digital-asset-native way to fund public goods across Africa. Helped more than 50 impact projects secure grant funding.",
+    "tags": [
+      "Public Goods",
+      "Grants",
+      "Impact"
+    ]
+  },
+  {
+    "id": "ideasflip",
+    "name": "ideasflip",
+    "year": "2019",
+    "status": "ACTIVE",
+    "url": "https://ideasflip.com",
+    "desc": "An agency banking and mobile money network — 10 service locations across Ghanaian cities, in partnership with Fidelity Bank. Banking where the bank branches aren't.",
+    "tags": [
+      "Agency Banking",
+      "Mobile Money",
+      "Financial Access",
+      "Ghana"
+    ]
   }
 ]

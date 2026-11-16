@@ -10,7 +10,7 @@ const HERO_DEFAULTS = {
   headline1:    'Thinking,',
   headline2:    'building.',
   statusBadge:  'Open to conversations',
-  contextLine1: 'AI · Crypto · Fintech',
+  contextLine1: 'Onchain Finance · AI · Fintech',
   contextLine2: 'Accra, Ghana 🇬🇭 · Global',
   name:         'MUNTALA',
   surname:      'PINIYINI',
