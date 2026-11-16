@@ -82,7 +82,7 @@ export default function EventCarousel({ events = [] }) {
       {/* Header row */}
       <div className="flex items-center justify-between mb-6 border-b border-subtle pb-4">
         <div>
-          <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-1">
+          <p className="font-mono text-2xs text-accent-ink tracking-widest uppercase mb-1">
             Events &amp; Meetups
           </p>
           <p className="font-mono text-[9px] text-whisper tracking-widest uppercase">
@@ -158,7 +158,7 @@ export default function EventCarousel({ events = [] }) {
               <div className="pt-4 flex items-start justify-between gap-4">
                 <div>
                   {ev.event && (
-                    <p className="font-mono text-[9px] text-yellow-acid tracking-widest uppercase mb-1">
+                    <p className="font-mono text-[9px] text-accent-ink tracking-widest uppercase mb-1">
                       {ev.event}
                     </p>
                   )}
@@ -168,7 +168,7 @@ export default function EventCarousel({ events = [] }) {
                       href={ev.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-[9px] text-whisper hover:text-yellow-acid
+                      className="font-mono text-[9px] text-whisper hover:text-accent-ink
                                  tracking-widest uppercase mt-2 inline-block transition-colors"
                     >
                       Official post ↗

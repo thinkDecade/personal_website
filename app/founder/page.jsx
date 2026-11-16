@@ -11,7 +11,7 @@ export const metadata = {
 export const dynamic = 'force-dynamic'
 
 const STATUS_CLASSES = {
-  ACTIVE:   'border-yellow-acid text-yellow-acid',
+  ACTIVE:   'border-yellow-acid text-accent-ink',
   BUILDING: 'border-mid text-dim',
   STEALTH:  'border-mid text-dim',
   ARCHIVED: 'border-mid text-whisper',
@@ -25,7 +25,7 @@ export default async function Founder() {
 
       {/* Header */}
       <div className="mb-16 border-b border-subtle pb-10">
-        <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-5">
+        <p className="font-mono text-2xs text-accent-ink tracking-widest uppercase mb-5">
           Founder
         </p>
         <h1 className="font-serif text-[clamp(28px,5vw,56px)] leading-[1.1] font-bold max-w-2xl">
@@ -45,7 +45,7 @@ export default async function Founder() {
           >
             {/* Number */}
             <div className="mb-4 md:mb-0">
-              <span className="font-mono text-2xs text-yellow-acid">
+              <span className="font-mono text-2xs text-accent-ink">
                 {String(idx + 1).padStart(2, '0')}
               </span>
             </div>
@@ -57,7 +57,7 @@ export default async function Founder() {
                   <a
                     href={url}
                     target="_blank" rel="noopener noreferrer"
-                    className="font-mono font-bold uppercase tracking-tight no-underline text-fg group-hover:text-yellow-acid"
+                    className="font-mono font-bold uppercase tracking-tight no-underline text-fg group-hover:text-accent-ink"
                     style={{ fontSize: 'clamp(22px, 3vw, 36px)' }}
                   >
                     {name} ↗

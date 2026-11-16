@@ -31,7 +31,7 @@ const CREDENTIALS = [
 function ListSection({ label, title, rows }) {
   return (
     <section className="pt-14 border-b border-subtle pb-12">
-      <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-3">{label}</p>
+      <p className="font-mono text-2xs text-accent-ink tracking-widest uppercase mb-3">{label}</p>
       <h2 className="font-serif text-[clamp(22px,3vw,32px)] leading-[1.15] font-bold mb-8">{title}</h2>
       <ul>
         {rows.map((r, i) => (
@@ -49,7 +49,7 @@ function ListSection({ label, title, rows }) {
 }
 
 const TYPE_CLASSES = {
-  FOUNDER:     'border-yellow-acid text-yellow-acid',
+  FOUNDER:     'border-yellow-acid text-accent-ink',
   'FULL-TIME': 'border-emerald-500/50 text-emerald-400',
   CONTRACT:    'border-blue-500/50 text-blue-400',
   ADVISORY:    'border-purple-500/50 text-purple-400',
@@ -65,7 +65,7 @@ export default async function Work() {
 
       {/* Header */}
       <div className="mb-16 border-b border-subtle pb-10">
-        <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-5">
+        <p className="font-mono text-2xs text-accent-ink tracking-widest uppercase mb-5">
           Work
         </p>
         <h1 className="font-serif text-[clamp(28px,5vw,52px)] leading-[1.1] font-bold">
@@ -82,7 +82,7 @@ export default async function Work() {
           >
             {/* Left — number */}
             <div className="mb-4 md:mb-0">
-              <span className="font-mono text-2xs text-yellow-acid">
+              <span className="font-mono text-2xs text-accent-ink">
                 {String(idx + 1).padStart(2, '0')}
               </span>
             </div>
@@ -106,7 +106,7 @@ export default async function Work() {
 
               {/* Org + meta */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-6">
-                <span className="font-mono text-2xs text-yellow-acid tracking-widest uppercase">
+                <span className="font-mono text-2xs text-accent-ink tracking-widest uppercase">
                   {org}
                 </span>
                 {period && (
@@ -128,7 +128,7 @@ export default async function Work() {
                 <ul className="space-y-3">
                   {points.map((p, i) => (
                     <li key={i} className="flex gap-3">
-                      <span className="font-mono text-2xs text-yellow-acid shrink-0 mt-[2px]">—</span>
+                      <span className="font-mono text-2xs text-accent-ink shrink-0 mt-[2px]">—</span>
                       <p className="font-serif text-[15px] leading-[1.7] text-muted">{p}</p>
                     </li>
                   ))}
@@ -160,7 +160,7 @@ export default async function Work() {
         <a
           href="https://www.linkedin.com/in/muntala-piniyini/"
           target="_blank" rel="noopener noreferrer"
-          className="font-mono text-xs tracking-[0.22em] uppercase text-yellow-acid border border-yellow-acid px-5 py-3 no-underline hover:bg-yellow-acid hover:text-bg"
+          className="font-mono text-xs tracking-[0.22em] uppercase text-accent-ink border border-yellow-acid px-5 py-3 no-underline hover:bg-yellow-acid hover:text-bg"
         >
           LinkedIn Profile →
         </a>

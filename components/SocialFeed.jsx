@@ -24,7 +24,7 @@ function TwitterFeed() {
       if (window.twttr?.widgets && containerRef.current) {
         containerRef.current.innerHTML = ''
         window.twttr.widgets.createTimeline(
-          { sourceType: 'profile', screenName: 'muntala_piniyin' },
+          { sourceType: 'profile', screenName: 'thinkDecade' },
           containerRef.current,
           { theme: t, height: 560, chrome: 'noheader nofooter noborders transparent', tweetLimit: 6 }
         )
@@ -53,9 +53,9 @@ function TwitterFeed() {
           data-theme={theme}
           data-height="500"
           data-chrome="noheader nofooter noborders transparent"
-          href="https://twitter.com/muntala_piniyin?ref_src=twsrc%5Etfw"
+          href="https://twitter.com/thinkDecade?ref_src=twsrc%5Etfw"
         >
-          Tweets by muntala_piniyin
+          Tweets by thinkDecade
         </a>
       </div>
 
@@ -104,7 +104,7 @@ function LinkedInCard() {
           on AI, crypto rails, and economic sovereignty.
         </p>
         <span className="font-mono text-[9px] tracking-widest uppercase text-whisper
-                          group-hover:text-yellow-acid transition-colors">
+                          group-hover:text-accent-ink transition-colors">
           Open Profile ↗
         </span>
       </a>
@@ -128,7 +128,7 @@ export default function SocialFeed() {
   return (
     <div className="mb-20">
       <div className="mb-8 border-b border-subtle pb-4">
-        <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-1">
+        <p className="font-mono text-2xs text-accent-ink tracking-widest uppercase mb-1">
           Live Feed
         </p>
         <p className="font-mono text-[9px] text-whisper tracking-widest uppercase">

@@ -16,6 +16,7 @@
   /* Default = light */
   --color-bg:    255 255 255;     /* clean white body */
   --color-fg:    15 15 15;
+  --color-accent-ink: 163 84 0;   /* darker orange for text on white (5.5:1) */
   --hero-bg:     #F5A100;         /* bold orange — matches photo background */
   --hero-accent: #ffffff;         /* white pops on orange */
 }
@@ -23,6 +24,7 @@
 [data-theme="light"] {
   --color-bg:    255 255 255;
   --color-fg:    15 15 15;
+  --color-accent-ink: 163 84 0;
   --hero-bg:     #F5A100;
   --hero-accent: #ffffff;
 }
@@ -30,6 +32,7 @@
 [data-theme="dark"] {
   --color-bg:    10 10 10;
   --color-fg:    245 245 245;
+  --color-accent-ink: 245 161 0;  /* bright orange reads fine on black */
   --hero-bg:     radial-gradient(ellipse at 50% 35%, #2a1500 0%, #0d0800 40%, #0a0a0a 65%);
   --hero-accent: #F5A100;         /* orange glows on dark bg */
 }
@@ -65,9 +68,9 @@
 }
 
 @layer utilities {
-  .text-muted    { color: rgb(var(--color-fg) / 0.72); }
-  .text-dim      { color: rgb(var(--color-fg) / 0.52); }
-  .text-whisper  { color: rgb(var(--color-fg) / 0.42); }
+  .text-muted    { color: rgb(var(--color-fg) / 0.82); }  /* 11:1 */
+  .text-dim      { color: rgb(var(--color-fg) / 0.68); }  /* 6.7:1 */
+  .text-whisper  { color: rgb(var(--color-fg) / 0.60); }  /* 5:1, AA */
 
   .border-subtle { border-color: rgb(var(--color-fg) / 0.10); }
   .border-mid    { border-color: rgb(var(--color-fg) / 0.20); }

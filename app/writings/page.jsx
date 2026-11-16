@@ -21,7 +21,7 @@ export default async function Writings() {
 
       {/* Header */}
       <div className="mb-14">
-        <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-5">
+        <p className="font-mono text-2xs text-accent-ink tracking-widest uppercase mb-5">
           Writings
         </p>
         <h1 className="font-serif text-[clamp(26px,4vw,44px)] leading-[1.15] font-bold mb-6">
@@ -33,7 +33,7 @@ export default async function Writings() {
           <a
             href="https://thinkdecade.substack.com"
             target="_blank" rel="noopener noreferrer"
-            className="font-mono text-2xs tracking-widest uppercase text-yellow-acid no-underline hover:underline"
+            className="font-mono text-2xs tracking-widest uppercase text-accent-ink no-underline hover:underline"
           >
             thinkDecade on Substack ↗
           </a>
@@ -52,7 +52,7 @@ export default async function Writings() {
             <a
               href="https://thinkdecade.substack.com"
               target="_blank" rel="noopener noreferrer"
-              className="text-yellow-acid"
+              className="text-accent-ink"
             >
               thinkDecade
             </a>.
@@ -68,7 +68,7 @@ export default async function Writings() {
               className="block py-7 border-b border-subtle no-underline group"
             >
               <div className="flex items-center gap-4 mb-3">
-                <span className="font-mono text-2xs tracking-widest uppercase text-yellow-acid">
+                <span className="font-mono text-2xs tracking-widest uppercase text-accent-ink">
                   thinkDecade
                 </span>
                 <span className="flex items-center gap-1 font-mono text-2xs text-dim">
@@ -77,7 +77,7 @@ export default async function Writings() {
                 </span>
               </div>
 
-              <h2 className="font-serif text-[20px] font-bold leading-snug mb-2.5 group-hover:text-yellow-acid transition-none">
+              <h2 className="font-serif text-[20px] font-bold leading-snug mb-2.5 group-hover:text-accent-ink transition-none">
                 {post.title}
               </h2>
 
@@ -87,7 +87,7 @@ export default async function Writings() {
                 </p>
               )}
 
-              <p className="font-mono text-[10px] text-whisper mt-3 group-hover:text-yellow-acid">
+              <p className="font-mono text-[10px] text-whisper mt-3 group-hover:text-accent-ink">
                 Read on Substack →
               </p>
             </a>

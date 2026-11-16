@@ -29,7 +29,7 @@ export default async function Social() {
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <div className="mb-16 border-b border-subtle pb-10">
-        <p className="font-mono text-2xs text-yellow-acid tracking-widest uppercase mb-5">
+        <p className="font-mono text-2xs text-accent-ink tracking-widest uppercase mb-5">
           Social
         </p>
         <h1 className="font-serif text-[clamp(28px,5vw,52px)] leading-[1.1] font-bold mb-6">
@@ -56,7 +56,7 @@ export default async function Social() {
                            py-8 border-b border-subtle no-underline"
               >
                 {/* Platform icon */}
-                <span className="text-dim group-hover:text-yellow-acid transition-colors shrink-0 mt-1">
+                <span className="text-dim group-hover:text-accent-ink transition-colors shrink-0 mt-1">
                   <PlatformIcon className="w-5 h-5" />
                 </span>
 
@@ -64,7 +64,7 @@ export default async function Social() {
                   <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
                     <h2
                       className="font-mono font-bold uppercase tracking-tight leading-none
-                                 text-fg group-hover:text-yellow-acid transition-colors"
+                                 text-fg group-hover:text-accent-ink transition-colors"
                       style={{ fontSize: 'clamp(16px, 2.2vw, 26px)' }}
                     >
                       {name}
@@ -83,7 +83,7 @@ export default async function Social() {
                       {cadence}
                     </span>
                   )}
-                  <span className="font-mono text-xs text-whisper group-hover:text-yellow-acid
+                  <span className="font-mono text-xs text-whisper group-hover:text-accent-ink
                                    md:mt-auto transition-colors">
                     ↗
                   </span>

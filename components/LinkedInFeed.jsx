@@ -10,7 +10,7 @@ export default function LinkedInFeed() {
     <div>
       {/* Column header */}
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-mid">
-        <span className="font-mono text-2xs tracking-widest uppercase text-yellow-acid">LinkedIn</span>
+        <span className="font-mono text-2xs tracking-widest uppercase text-accent-ink">LinkedIn</span>
         <span className="font-mono text-2xs text-dim">Muntala Piniyini</span>
       </div>
 
@@ -36,7 +36,7 @@ export default function LinkedInFeed() {
         href="https://www.linkedin.com/in/muntala-piniyini/"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-mono text-2xs tracking-widest uppercase text-dim hover:text-yellow-acid no-underline mt-5 inline-block"
+        className="font-mono text-2xs tracking-widest uppercase text-dim hover:text-accent-ink no-underline mt-5 inline-block"
       >
         More on LinkedIn →
       </a>

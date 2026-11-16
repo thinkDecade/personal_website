@@ -1,5 +1,5 @@
 // components/XFeed.jsx
-// Renders the X (Twitter) timeline for @muntala_piniyin
+// Renders the X (Twitter) timeline for @thinkDecade
 // Uses Twitter's official embed widget — no API key required
 // The widget is loaded client-side only (browser script)
 
@@ -27,8 +27,8 @@ export default function XFeed() {
     <div>
       {/* Column header */}
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-mid">
-        <span className="font-mono text-2xs tracking-widest uppercase text-yellow-acid">X</span>
-        <span className="font-mono text-2xs text-dim">@muntala_piniyin</span>
+        <span className="font-mono text-2xs tracking-widest uppercase text-accent-ink">X</span>
+        <span className="font-mono text-2xs text-dim">@thinkDecade</span>
       </div>
 
       {/*
@@ -50,7 +50,7 @@ export default function XFeed() {
         data-tweet-limit="5"
         data-width="100%"
         data-dnt="true"
-        href="https://twitter.com/muntala_piniyin"
+        href="https://twitter.com/thinkDecade"
         style={{ colorScheme: 'dark' }}
       >
         Loading posts…

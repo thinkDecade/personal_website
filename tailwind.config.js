@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         'yellow-acid': '#F5A100',
+        'accent-ink': 'rgb(var(--color-accent-ink) / <alpha-value>)',
         'bg':          'rgb(var(--color-bg) / <alpha-value>)',
         'fg':          'rgb(var(--color-fg) / <alpha-value>)',
       },

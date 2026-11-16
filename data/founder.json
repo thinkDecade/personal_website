@@ -28,6 +28,20 @@
     ]
   },
   {
+    "id": "ideasflip",
+    "name": "ideasflip",
+    "year": "2019",
+    "status": "ACTIVE",
+    "url": "https://ideasflip.com",
+    "desc": "An agency banking and mobile money network — 10 service locations across Ghanaian cities, in partnership with Fidelity Bank. Banking where the bank branches aren't.",
+    "tags": [
+      "Agency Banking",
+      "Mobile Money",
+      "Financial Access",
+      "Ghana"
+    ]
+  },
+  {
     "id": "library-protocol",
     "name": "Library Protocol",
     "year": "2025",
@@ -52,20 +66,6 @@
       "Public Goods",
       "Grants",
       "Impact"
-    ]
-  },
-  {
-    "id": "ideasflip",
-    "name": "ideasflip",
-    "year": "2019",
-    "status": "ACTIVE",
-    "url": "https://ideasflip.com",
-    "desc": "An agency banking and mobile money network — 10 service locations across Ghanaian cities, in partnership with Fidelity Bank. Banking where the bank branches aren't.",
-    "tags": [
-      "Agency Banking",
-      "Mobile Money",
-      "Financial Access",
-      "Ghana"
     ]
   }
 ]

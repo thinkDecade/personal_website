@@ -95,7 +95,7 @@ export default function Nav() {
                   className={[
                     'font-mono text-[13px] tracking-[0.2em] uppercase no-underline',
                     'py-5 border-b border-subtle transition-colors block',
-                    isActive ? 'text-yellow-acid' : 'text-fg hover:text-yellow-acid',
+                    isActive ? 'text-accent-ink' : 'text-fg hover:text-accent-ink',
                   ].join(' ')}
                 >
                   {label}

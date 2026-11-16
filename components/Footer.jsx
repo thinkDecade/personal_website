@@ -9,12 +9,12 @@ export default function Footer() {
       </span>
 
       <a
-        href="https://x.com/muntala_piniyin"
+        href="https://x.com/thinkDecade"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-mono text-2xs text-whisper tracking-widest no-underline hover:text-yellow-acid"
+        className="font-mono text-2xs text-whisper tracking-widest no-underline hover:text-accent-ink"
       >
-        @muntala_piniyin
+        @thinkDecade
       </a>
 
     </footer>

@@ -142,13 +142,13 @@ export default async function Home() {
         >
           <p
             className="font-mono text-2xs tracking-[0.22em] uppercase leading-loose"
-            style={{ color: 'rgba(0,0,0,0.5)' }}
+            style={{ color: 'rgba(0,0,0,0.78)' }}
           >
             {hero.contextLine1}
           </p>
           <p
             className="font-mono text-2xs tracking-[0.22em] uppercase"
-            style={{ color: 'rgba(0,0,0,0.3)' }}
+            style={{ color: 'rgba(0,0,0,0.62)' }}
           >
             {hero.contextLine2}
           </p>
@@ -200,17 +200,17 @@ export default async function Home() {
                        [&:nth-child(4)]:border-b-0
                        md:[&:nth-child(3)]:border-r hover:bg-yellow-acid/5"
           >
-            <span className="hidden md:block mb-2 text-dim group-hover:text-yellow-acid transition-colors">
+            <span className="hidden md:block mb-2 text-dim group-hover:text-accent-ink transition-colors">
               <Icon className="w-4 h-4" />
             </span>
-            <p className="font-mono text-xs tracking-widest uppercase text-yellow-acid mb-1 group-hover:underline">
+            <p className="font-mono text-xs tracking-widest uppercase text-accent-ink mb-1 group-hover:underline">
               {label}
             </p>
             <p className="font-mono text-[10px] text-dim leading-snug pr-4">
               {desc}
             </p>
             <span
-              className="absolute bottom-3 right-4 md:bottom-5 md:right-6 font-mono text-xs text-whisper group-hover:text-yellow-acid"
+              className="absolute bottom-3 right-4 md:bottom-5 md:right-6 font-mono text-xs text-whisper group-hover:text-accent-ink"
               aria-hidden="true"
             >
               →
