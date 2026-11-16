@@ -66,8 +66,10 @@ export default async function Home() {
       {/* ══════════════════════════════════════════════════════════
           HERO — Bold orange full-bleed · 3D photo · giant italic type
       ══════════════════════════════════════════════════════════ */}
+      {/* Hero + quick-nav share one screen: no scrolling needed to reach the cards */}
+      <div className="flex flex-col h-[calc(100dvh-64px)] min-h-[560px]">
       <section
-        className="relative w-full h-[calc(100vh-64px)] min-h-[500px] overflow-hidden"
+        className="relative w-full flex-1 min-h-0 overflow-hidden"
         style={{ background: 'var(--hero-bg)' }}
       >
 
@@ -184,31 +186,31 @@ export default async function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          SECTIONS — Quick-nav grid below the fold
+          SECTIONS — Quick-nav strip, pinned to the bottom of the first screen
       ══════════════════════════════════════════════════════════ */}
-      <section className="w-full grid grid-cols-2 md:grid-cols-4 border-t border-subtle">
+      <section className="w-full shrink-0 grid grid-cols-2 md:grid-cols-4 border-t border-subtle">
         {SECTIONS.map(({ href, label, desc, num, Icon }) => (
           <Link
             key={href}
             href={href}
-            className="group relative p-6 md:p-8 border-r border-b border-subtle no-underline
+            className="group relative px-4 py-3 md:px-8 md:py-5 border-r border-b border-subtle no-underline
                        last:border-r-0 md:border-b-0
                        [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r
                        [&:nth-child(3)]:border-r-0 [&:nth-child(3)]:border-b-0
                        [&:nth-child(4)]:border-b-0
                        md:[&:nth-child(3)]:border-r hover:bg-yellow-acid/5"
           >
-            <span className="block mb-4 text-dim group-hover:text-yellow-acid transition-colors">
-              <Icon className="w-5 h-5" />
+            <span className="hidden md:block mb-2 text-dim group-hover:text-yellow-acid transition-colors">
+              <Icon className="w-4 h-4" />
             </span>
-            <p className="font-mono text-xs tracking-widest uppercase text-yellow-acid mb-2 group-hover:underline">
+            <p className="font-mono text-xs tracking-widest uppercase text-yellow-acid mb-1 group-hover:underline">
               {label}
             </p>
-            <p className="font-mono text-[10px] text-dim leading-relaxed">
+            <p className="font-mono text-[10px] text-dim leading-snug pr-4">
               {desc}
             </p>
             <span
-              className="absolute bottom-6 right-6 font-mono text-xs text-whisper group-hover:text-yellow-acid"
+              className="absolute bottom-3 right-4 md:bottom-5 md:right-6 font-mono text-xs text-whisper group-hover:text-yellow-acid"
               aria-hidden="true"
             >
               →
@@ -216,6 +218,7 @@ export default async function Home() {
           </Link>
         ))}
       </section>
+      </div>
 
     </>
   )
