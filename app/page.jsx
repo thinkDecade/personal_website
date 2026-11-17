@@ -145,12 +145,9 @@ export default async function Home() {
           <div className="md:col-span-3">
             <SectionLabel num="03">Selected work</SectionLabel>
             <h2 className="font-serif text-[clamp(30px,3vw,40px)] leading-[1.1] mb-6">Things brought into existence.</h2>
-            <Link href="/founder" className="font-mono text-2xs tracking-[0.2em] uppercase no-underline text-accent-ink hover:underline">
-              All ventures →
-            </Link>
           </div>
           <ol className="md:col-span-9 list-none m-0 p-0 border-t border-yellow-acid">
-            {selected.map(v => (
+            {selected.slice(0, 3).map(v => (
               <li key={v.id} className="grid grid-cols-[40px_1fr] md:grid-cols-[56px_1fr_200px] gap-x-4 gap-y-2 py-8 border-b border-stone">
                 <span className="font-mono text-2xs text-accent-ink pt-3">{v.num}</span>
                 <div>
@@ -168,6 +165,13 @@ export default async function Home() {
                 </dl>
               </li>
             ))}
+            {selected.length > 3 && (
+              <li className="pt-10">
+                <Link href="/founder" className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.22em] uppercase no-underline bg-yellow-acid text-black px-7 py-4 hover:bg-white">
+                  View all {selected.length} ventures <span aria-hidden="true">→</span>
+                </Link>
+              </li>
+            )}
           </ol>
         </div>
       </section>
