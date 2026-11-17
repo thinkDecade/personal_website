@@ -8,10 +8,10 @@ import ThemeToggle from './ThemeToggle'
 
 const NAV_ITEMS = [
   { href: '/',         label: 'Home'     },
-  { href: '/writings', label: 'Writings' },
-  { href: '/founder',  label: 'Founder'  },
-  { href: '/work',     label: 'Work'     },
-  { href: '/social',   label: 'Social'   },
+  { href: '/writings', label: 'Thinking' },
+  { href: '/founder',  label: 'Building' },
+  { href: '/work',     label: 'Journey'  },
+  { href: '/about',    label: 'About'    },
 ]
 
 export default function Nav() {
@@ -60,7 +60,7 @@ export default function Nav() {
           <Link
             href="/social"
             className="hidden md:inline-flex items-center font-mono text-[10px] tracking-[0.18em]
-                       uppercase bg-fg text-bg px-5 py-2.5 rounded-full no-underline
+                       uppercase bg-fg text-bg px-5 py-2.5 no-underline
                        hover:opacity-75 transition-opacity shrink-0"
           >
             Contact

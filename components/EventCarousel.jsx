@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 
-const PLACEHOLDER_COLORS = ['#F5A100', '#1a1a1a', '#e8e0d4', '#2c2c2c', '#c8b89a']
+const PLACEHOLDER_COLORS = ['#D95D35', '#1a1a1a', '#e8e0d4', '#2c2c2c', '#c8b89a']
 const INTERVAL_MS = 4000
 
 export default function EventCarousel({ events = [] }) {
@@ -211,7 +211,7 @@ export default function EventCarousel({ events = [] }) {
                 <span
                   className="absolute inset-y-0 left-0 rounded-[3px]"
                   style={{
-                    background:  '#F5A100',
+                    background:  '#D95D35',
                     width:       paused ? '100%' : '0%',
                     animation:   paused ? 'none' : `fillBar ${INTERVAL_MS}ms linear forwards`,
                   }}
