@@ -76,7 +76,7 @@ export default async function Home() {
             <div className="max-w-[520px] flex flex-col gap-3">
               <p className="font-serif font-bold text-[22px] leading-tight">Muntala Piniyini Shaibu</p>
               <p className="font-mono text-xs tracking-[0.14em] uppercase text-muted">
-                Founder. Operator. Writer. Independent thinker.
+                Founder. Operator. Builder.
               </p>
               <p className="font-serif text-[18px] leading-[1.6] text-muted">
                 Working across technology, finance and emerging systems to turn ideas into
@@ -98,9 +98,6 @@ export default async function Home() {
               alt="Portrait of Muntala Piniyini Shaibu"
               className="w-full aspect-[4/5] object-cover object-top grayscale contrast-[1.08]"
             />
-            <figcaption className="mt-3 flex justify-between font-mono text-2xs tracking-[0.18em] uppercase text-dim">
-              <span>Portrait</span><span>Accra</span>
-            </figcaption>
           </figure>
         </div>
       </section>
