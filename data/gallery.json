@@ -1,0 +1,117 @@
+[
+  {
+    "id": "portrait-muntala",
+    "title": "Portrait",
+    "description": "",
+    "type": "image",
+    "src": "/gallery/portrait-muntala.jpg",
+    "thumb": "/gallery/thumbs/portrait-muntala.jpg",
+    "videoUrl": "",
+    "alt": "Portrait of Muntala Piniyini Shaibu in a cream t-shirt against an orange background",
+    "date": "",
+    "location": "Accra, Ghana",
+    "categories": [
+      "Portraits"
+    ],
+    "featured": true,
+    "published": true,
+    "order": 1,
+    "width": 1280,
+    "height": 812,
+    "link": "",
+    "createdAt": "2026-11-17T00:00:00.000Z",
+    "updatedAt": "2026-11-17T00:00:00.000Z"
+  },
+  {
+    "id": "ffd-1",
+    "title": "Future of Finance Dialogues",
+    "description": "Evening networking · Accra, Ghana",
+    "type": "image",
+    "src": "/events/ffd-1.jpg",
+    "thumb": "/gallery/thumbs/ffd-1.jpg",
+    "videoUrl": "",
+    "alt": "Guests networking in the evening at Future of Finance Dialogues in Accra",
+    "date": "",
+    "location": "Accra, Ghana",
+    "categories": [
+      "Events"
+    ],
+    "featured": true,
+    "published": true,
+    "order": 2,
+    "width": 2000,
+    "height": 1500,
+    "link": "https://www.linkedin.com/posts/future-of-finance-dialogues_last-friday-ghanas-financial-leaders-shaped-activity-7421251906611695616-7oYU",
+    "createdAt": "2026-11-17T00:00:00.000Z",
+    "updatedAt": "2026-11-17T00:00:00.000Z"
+  },
+  {
+    "id": "ffd-2",
+    "title": "Future of Finance Dialogues",
+    "description": "Digital Finance Symposium · Accra, Ghana",
+    "type": "image",
+    "src": "/events/ffd-2.jpg",
+    "thumb": "/gallery/thumbs/ffd-2.jpg",
+    "videoUrl": "",
+    "alt": "Digital Finance Symposium session at Future of Finance Dialogues in Accra",
+    "date": "",
+    "location": "Accra, Ghana",
+    "categories": [
+      "Events"
+    ],
+    "featured": true,
+    "published": true,
+    "order": 3,
+    "width": 2000,
+    "height": 1428,
+    "link": "https://www.linkedin.com/posts/future-of-finance-dialogues_last-friday-ghanas-financial-leaders-shaped-activity-7421251906611695616-7oYU",
+    "createdAt": "2026-11-17T00:00:00.000Z",
+    "updatedAt": "2026-11-17T00:00:00.000Z"
+  },
+  {
+    "id": "ffd-3",
+    "title": "Future of Finance Dialogues",
+    "description": "Ghana's financial leaders · Group photo · Accra",
+    "type": "image",
+    "src": "/events/ffd-3.jpg",
+    "thumb": "/gallery/thumbs/ffd-3.jpg",
+    "videoUrl": "",
+    "alt": "Group photo of Ghanaian financial leaders at Future of Finance Dialogues",
+    "date": "",
+    "location": "Accra, Ghana",
+    "categories": [
+      "Events"
+    ],
+    "featured": true,
+    "published": true,
+    "order": 4,
+    "width": 2000,
+    "height": 1093,
+    "link": "https://www.linkedin.com/posts/future-of-finance-dialogues_last-friday-ghanas-financial-leaders-shaped-activity-7421251906611695616-7oYU",
+    "createdAt": "2026-11-17T00:00:00.000Z",
+    "updatedAt": "2026-11-17T00:00:00.000Z"
+  },
+  {
+    "id": "ffd-4",
+    "title": "Future of Finance Dialogues",
+    "description": "Dinner conversation · Accra, Ghana",
+    "type": "image",
+    "src": "/events/ffd-4.jpg",
+    "thumb": "/gallery/thumbs/ffd-4.jpg",
+    "videoUrl": "",
+    "alt": "Dinner conversation at Future of Finance Dialogues in Accra",
+    "date": "",
+    "location": "Accra, Ghana",
+    "categories": [
+      "Events"
+    ],
+    "featured": false,
+    "published": true,
+    "order": 5,
+    "width": 2000,
+    "height": 1500,
+    "link": "https://www.linkedin.com/posts/future-of-finance-dialogues_last-friday-ghanas-financial-leaders-shaped-activity-7421251906611695616-7oYU",
+    "createdAt": "2026-11-17T00:00:00.000Z",
+    "updatedAt": "2026-11-17T00:00:00.000Z"
+  }
+]

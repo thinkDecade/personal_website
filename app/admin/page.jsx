@@ -34,14 +34,16 @@ function QuickLink({ href, label, desc }) {
 }
 
 export default async function AdminDashboard() {
-  const [events, founder, work, content, social] = await Promise.all([
+  const [events, founder, work, content, social, gallery] = await Promise.all([
     readSection('events'),
     readSection('founder'),
     readSection('work'),
     readSection('content'),
     readSection('social'),
+    readSection('gallery'),
   ])
 
+  const galleryCount  = Array.isArray(gallery) ? gallery.filter(g => g.published).length : 0
   const eventCount    = Array.isArray(events)            ? events.length  : 0
   const projectCount  = Array.isArray(founder)           ? founder.length : 0
   const workCount     = Array.isArray(work)              ? work.length    : 0
@@ -61,6 +63,7 @@ export default async function AdminDashboard() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+        <StatCard href="/admin/gallery" label="Gallery"   count={galleryCount}  icon="▦" status="published" />
         <StatCard href="/admin/events"  label="Events"    count={eventCount}    icon="◈" />
         <StatCard href="/admin/founder" label="Projects"  count={projectCount}  icon="◉" status={activeProjects > 0 ? `${activeProjects} active` : undefined} />
         <StatCard href="/admin/work"    label="Roles"     count={workCount}     icon="◎" />
@@ -72,6 +75,7 @@ export default async function AdminDashboard() {
       <div className="mb-10">
         <h2 className="text-xs tracking-[0.2em] text-neutral-600 uppercase mb-4">Quick actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <QuickLink href="/admin/gallery" label="Add to gallery" desc="Publish photos and videos to the Gallery" />
           <QuickLink href="/admin/events"  label="Add event"    desc="Upload photos and add event details" />
           <QuickLink href="/admin/founder" label="Add project"  desc="Add a new project or venture" />
           <QuickLink href="/admin/work"    label="Add role"     desc="Add a work experience entry" />

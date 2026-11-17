@@ -39,3 +39,4 @@ desktop.ini
 # ── TypeScript ────────────────────────────────────────────────────────────────
 *.tsbuildinfo
 next-env.d.ts
+public/uploads/
