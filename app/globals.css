@@ -14,25 +14,31 @@
 ──────────────────────────────────────────────────────────────────────────── */
 :root {
   /* Default = light */
-  --color-bg:    255 255 255;     /* clean white body */
-  --color-fg:    15 15 15;
-  --color-accent-ink: 163 84 0;   /* darker orange for text on white (5.5:1) */
+  --color-bg:    244 241 233;     /* Paper  #F4F1E9 */
+  --color-fg:    23 23 23;        /* Ink    #171717 */
+  --color-accent-ink: 168 64 30;  /* Signal, text-strength #A8401E (5.4:1 on paper) */
+  --color-signal: 217 93 53;      /* Signal #D95D35: display type ≥24px, rules, marks */
+  --color-stone: 185 181 172;     /* Stone  #B9B5AC: hairlines only */
   --hero-bg:     #F5A100;         /* bold orange — matches photo background */
   --hero-accent: #ffffff;         /* white pops on orange */
 }
 
 [data-theme="light"] {
-  --color-bg:    255 255 255;
-  --color-fg:    15 15 15;
-  --color-accent-ink: 163 84 0;
+  --color-bg:    244 241 233;
+  --color-fg:    23 23 23;
+  --color-accent-ink: 168 64 30;
+  --color-signal: 217 93 53;
+  --color-stone: 185 181 172;
   --hero-bg:     #F5A100;
   --hero-accent: #ffffff;
 }
 
 [data-theme="dark"] {
-  --color-bg:    10 10 10;
-  --color-fg:    245 245 245;
-  --color-accent-ink: 245 161 0;  /* bright orange reads fine on black */
+  --color-bg:    23 23 23;        /* Ink */
+  --color-fg:    244 241 233;     /* Paper */
+  --color-accent-ink: 232 128 92;  /* lighter signal for text on ink */
+  --color-signal: 232 128 92;
+  --color-stone: 90 88 84;
   --hero-bg:     radial-gradient(ellipse at 50% 35%, #2a1500 0%, #0d0800 40%, #0a0a0a 65%);
   --hero-accent: #F5A100;         /* orange glows on dark bg */
 }
@@ -48,14 +54,14 @@
 
   /* Selection — light theme */
   ::selection {
-    background-color: #F5A100;
-    color: #ffffff;
+    background-color: #D95D35;
+    color: #F4F1E9;
   }
 
   /* Selection — dark theme */
   [data-theme="dark"] ::selection {
-    background-color: #F5A100;
-    color: #0a0a0a;
+    background-color: #E8805C;
+    color: #171717;
   }
 
   a {
@@ -70,10 +76,13 @@
 @layer utilities {
   .text-muted    { color: rgb(var(--color-fg) / 0.82); }  /* 11:1 */
   .text-dim      { color: rgb(var(--color-fg) / 0.68); }  /* 6.7:1 */
-  .text-whisper  { color: rgb(var(--color-fg) / 0.60); }  /* 5:1, AA */
+  .text-whisper  { color: rgb(var(--color-fg) / 0.64); }  /* 5.1:1 on paper */
 
   .border-subtle { border-color: rgb(var(--color-fg) / 0.10); }
   .border-mid    { border-color: rgb(var(--color-fg) / 0.20); }
+  .border-stone  { border-color: rgb(var(--color-stone)); }
+  .text-signal   { color: rgb(var(--color-signal)); }   /* large display type only */
+  .bg-signal     { background-color: rgb(var(--color-signal)); }
 
   .label {
     @apply font-mono text-2xs tracking-widest uppercase;

@@ -2,6 +2,7 @@
 // Work experience showcase — data driven from data/work.json
 import { IconCalendar, IconMapPin } from '@/components/icons'
 import { readSection }              from '@/lib/store'
+import { SPEAKING, CREDENTIALS }     from '@/lib/profile'
 
 export const metadata = {
   title: 'Work',
@@ -9,24 +10,6 @@ export const metadata = {
 }
 
 export const dynamic = 'force-dynamic'
-
-// Speaking + credentials — edit here (not managed by the admin CMS)
-const SPEAKING = [
-  { year: '2026', event: 'Digital Assets Summit Africa',  role: 'Panel Moderator', topic: 'Digital Finance in Action: From Experimentation to Commercial Deployment' },
-  { year: '2026', event: 'Accra Stablecoin Conference',   role: 'Panel Speaker',   topic: "Building Africa's Stablecoin Payment Infrastructure" },
-  { year: '2024', event: 'Max Impact Podcast',            role: 'Featured Guest',  topic: 'Public Goods Africa' },
-  { year: '2023', event: 'Africa Web3 Summit',            role: 'Panel Speaker',   topic: 'Society on Chain' },
-  { year: '2023', event: 'Bankless Africa × ITC',         role: 'Featured Speaker', topic: 'Understanding Web3 and Its Potential for Businesses' },
-  { year: '2022', event: 'Ghana Crypto & DeFi Summit',    role: 'Conference Speaker', topic: '' },
-]
-
-const CREDENTIALS = [
-  { year: '2026', name: 'Level 2 Award in Fundamentals of Financial Services', org: 'Chartered Institute for Securities & Investment (CISI)' },
-  { year: '2026', name: 'AI & Agentic Systems — Claude Code, Model Context Protocol, Subagents', org: 'Anthropic Academy' },
-  { year: '2025', name: 'Founder Academy', org: 'ALX' },
-  { year: '2020', name: 'BSc Accounting', org: 'University of Professional Studies, Accra (UPSA)' },
-  { year: '—',    name: 'Future of Payment Technologies · Financial Markets · Regulatory Compliance', org: 'University of Michigan · Yale · University of Pennsylvania' },
-]
 
 function ListSection({ label, title, rows }) {
   return (

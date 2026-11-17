@@ -1,225 +1,265 @@
-// app/page.jsx — Home · Bold orange hero, full-colour photo, editorial type
+// app/page.jsx
+// Home — an editorial portrait: who he is, what drives the work, what he has
+// built, how he thinks, the person, and an invitation.
+// Ventures come from data/founder.json (+ roles from data/work.json),
+// journal entries from the thinkDecade Substack feed, speaking from lib/profile.js.
+
 import Link from 'next/link'
-import { IconPen, IconRocket, IconBriefcase, IconSignal } from '@/components/icons'
-import { readSection } from '@/lib/store'
+import { readSection }      from '@/lib/store'
+import { getSubstackPosts } from '@/lib/substack'
+import { SPEAKING }         from '@/lib/profile'
 
 export const dynamic = 'force-dynamic'
 
-// Fallback defaults if content data is missing
-const HERO_DEFAULTS = {
-  headline1:    'Imagining,',
-  headline2:    'building.',
-  statusBadge:  'Open to conversations',
-  contextLine1: 'Onchain Finance · AI · Fintech',
-  contextLine2: 'Accra, Ghana 🇬🇭 · Global',
-  name:         'MUNTALA',
-  surname:      'PINIYINI',
-  roles: [
-    'FOUNDER · BUILDER',
-    'CREATOR · WRITER',
-    'OPERATOR · TINKERER',
-    'MANY HATS.',
-  ],
-  photo: '/muntala.jpg',
-}
+// Role shown next to each venture. Ventures without a matching Work entry
+// fall back to "Founder" (everything on the Founder page was started by him).
+const ROLE_FALLBACK = 'Founder'
 
-const SECTIONS = [
-  {
-    href:  '/writings',
-    label: 'Writings',
-    desc:  'Long-form thinking. Unresolved questions welcome.',
-    num:   '01',
-    Icon:  IconPen,
-  },
-  {
-    href:  '/founder',
-    label: 'Founder',
-    desc:  'Things I started. Problems I chose to own.',
-    num:   '02',
-    Icon:  IconRocket,
-  },
-  {
-    href:  '/work',
-    label: 'Work',
-    desc:  'Where I have been. What I built.',
-    num:   '03',
-    Icon:  IconBriefcase,
-  },
-  {
-    href:  '/social',
-    label: 'Social',
-    desc:  'Life in Accra. Find me where the thinking happens.',
-    num:   '04',
-    Icon:  IconSignal,
-  },
+const DIMENSIONS = [
+  { name: 'The Thinker',  body: 'Ideas, perspectives, research, writing and intellectual exploration.' },
+  { name: 'The Builder',  body: 'Companies, products, technology, systems and institutions.' },
+  { name: 'The Operator', body: 'Execution, leadership, governance, collaboration and getting things done.' },
 ]
 
-export default async function Home() {
-  const content  = await readSection('content')
-  const heroData = content?.hero ?? null
-  const hero     = { ...HERO_DEFAULTS, ...heroData }
+const COMMUNITIES = [
+  { name: 'BanklessDAO (now BlackFlagDAO)', note: 'Governance, grants committee, guild coordination' },
+  { name: 'Sovereign Frontier',             note: 'Listeners in 100+ countries' },
+  { name: 'Public Good Africa',             note: '50+ impact projects funded' },
+]
 
-  const roles = Array.isArray(hero.roles) ? hero.roles : HERO_DEFAULTS.roles
+function SectionLabel({ num, children }) {
+  return (
+    <p className="font-mono text-2xs tracking-[0.22em] uppercase text-accent-ink flex items-center gap-3 mb-8">
+      <span>{num}</span>
+      <span className="h-px w-10 bg-signal" aria-hidden="true" />
+      <span>{children}</span>
+    </p>
+  )
+}
+
+export default async function Home() {
+  const [ventures, work, posts] = await Promise.all([
+    readSection('founder'),
+    readSection('work'),
+    getSubstackPosts('https://thinkdecade.substack.com/feed', 3).catch(() => []),
+  ])
+
+  const roleById = Object.fromEntries((work || []).map(w => [w.id, w.role]))
+  const selected = (ventures || []).map((v, i) => ({
+    ...v,
+    num:  String(i + 1).padStart(2, '0'),
+    role: roleById[v.id] || ROLE_FALLBACK,
+  }))
 
   return (
-    <>
-      {/* ══════════════════════════════════════════════════════════
-          HERO — Bold orange full-bleed · 3D photo · giant italic type
-      ══════════════════════════════════════════════════════════ */}
-      {/* Hero + quick-nav share one screen: no scrolling needed to reach the cards */}
-      <div className="flex flex-col h-[calc(100dvh-64px)] min-h-[560px]">
-      <section
-        className="relative w-full flex-1 min-h-0 overflow-hidden"
-        style={{ background: 'var(--hero-bg)' }}
-      >
+    <div className="w-full">
 
-        {/* ── Headline 1 — upper left, z-[1], BEHIND photo ─────────── */}
-        <div
-          className="absolute z-[1] pointer-events-none select-none"
-          style={{ top: '7%', left: '3%' }}
-        >
-          <span
-            className="font-serif italic leading-none text-fg"
-            style={{ fontSize: 'clamp(60px, 11vw, 180px)' }}
-          >
-            {hero.headline1}
-          </span>
-        </div>
+      {/* ═══ 01 · OPENING ═══════════════════════════════════════════════ */}
+      <section className="px-6 md:px-14 pt-12 md:pt-16 pb-20 md:pb-28 border-b border-stone">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-end">
 
-        {/* ── Headline 2 — upper right, z-[1], BEHIND photo ────────── */}
-        <div
-          className="absolute z-[1] pointer-events-none select-none text-right"
-          style={{ top: '18%', right: '3%' }}
-        >
-          <span
-            className="font-serif italic leading-none"
-            style={{ fontSize: 'clamp(60px, 11vw, 180px)', color: 'var(--hero-accent)' }}
-          >
-            {hero.headline2}
-          </span>
-        </div>
+          <div className="md:col-span-7 flex flex-col">
+            <div className="flex items-baseline justify-between gap-4 mb-14 md:mb-20">
+              <span className="font-serif italic text-[28px] leading-none">
+                Muntala<span className="text-signal">.</span>
+              </span>
+              <span className="font-mono text-2xs tracking-[0.22em] uppercase text-dim">
+                Accra · Ghana · Everywhere
+              </span>
+            </div>
 
-        {/* ── Centre photo — z-[2], IN FRONT of headline ─────────────── */}
-        <div className="absolute inset-0 flex items-center justify-center z-[2] pointer-events-none">
-          <div
-            className="relative h-[88%]"
-            style={{
-              aspectRatio: '3/4',
-              maxHeight: '700px',
-              maxWidth: 'min(525px, 90vw)',
-              transform: 'perspective(1000px) rotateY(-6deg) rotateX(2deg)',
-              transformStyle: 'preserve-3d',
-              boxShadow: '28px 36px 72px rgba(0,0,0,0.30), 8px 12px 24px rgba(0,0,0,0.18)',
-            }}
-          >
+            <h1 className="font-serif leading-[0.98] tracking-[-0.02em] text-[clamp(44px,7.2vw,104px)] mb-12">
+              Thinking in systems.<br />
+              <em className="text-signal">Building what comes next.</em>
+            </h1>
+
+            <div className="max-w-[520px] flex flex-col gap-3">
+              <p className="font-serif font-bold text-[22px] leading-tight">Muntala Piniyini Shaibu</p>
+              <p className="font-mono text-xs tracking-[0.14em] uppercase text-muted">
+                Founder. Operator. Writer. Independent thinker.
+              </p>
+              <p className="font-serif text-[18px] leading-[1.6] text-muted">
+                Working across technology, finance and emerging systems to turn ideas into
+                products, businesses and institutions.
+              </p>
+              <a
+                href="#work"
+                className="mt-6 self-start font-mono text-xs tracking-[0.22em] uppercase no-underline border-b border-fg pb-1 hover:text-accent-ink hover:border-accent-ink"
+              >
+                Explore the work ↓
+              </a>
+            </div>
+          </div>
+
+          <figure className="md:col-span-5 md:col-start-8 m-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={hero.photo || '/muntala.jpg'}
-              alt={`${hero.name} ${hero.surname}`}
-              className="w-full h-full object-cover object-top"
-              style={{ mixBlendMode: 'multiply' }}
+              src="/muntala.jpg"
+              alt="Portrait of Muntala Piniyini Shaibu"
+              className="w-full aspect-[4/5] object-cover object-top grayscale contrast-[1.08]"
             />
+            <figcaption className="mt-3 flex justify-between font-mono text-2xs tracking-[0.18em] uppercase text-dim">
+              <span>Portrait</span><span>Accra</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* ═══ 02 · PHILOSOPHY ════════════════════════════════════════════ */}
+      <section className="px-6 md:px-14 py-20 md:py-28 border-b border-stone">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-3"><SectionLabel num="02">Philosophy</SectionLabel></div>
+          <div className="md:col-span-9">
+            <blockquote className="m-0 font-serif italic text-[clamp(28px,3.8vw,52px)] leading-[1.15] tracking-[-0.01em] mb-10">
+              The world doesn&rsquo;t need more observers. It needs people willing to question,
+              imagine and build.
+            </blockquote>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[860px] mb-16">
+              <p className="font-serif text-[18px] leading-[1.65] text-muted m-0">
+                I am interested in the systems that shape how people live, work, exchange value
+                and organise society.
+              </p>
+              <p className="font-serif text-[18px] leading-[1.65] text-muted m-0">
+                My work sits at the intersection of ideas and execution.
+              </p>
+            </div>
+            <ol className="list-none m-0 p-0 grid grid-cols-1 md:grid-cols-3 border-t border-fg">
+              {DIMENSIONS.map((d, i) => (
+                <li key={d.name} className="pt-6 pb-2 md:pr-8 border-b md:border-b-0 border-stone">
+                  <p className="font-mono text-2xs tracking-[0.2em] text-dim mb-3">0{i + 1}</p>
+                  <p className="font-serif font-bold text-[24px] mb-2">{d.name}</p>
+                  <p className="font-serif text-[16px] leading-[1.6] text-muted m-0">{d.body}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
+      </section>
 
-        {/* ── Status badge — pill, z-[3] ──────────────────────────────── */}
-        <div
-          className="absolute z-[3]"
-          style={{ bottom: '27%', left: '5%' }}
-        >
-          <span className="inline-flex items-center gap-2.5 bg-[#1a1a1a] text-white rounded-full px-4 py-2.5">
-            <span className="w-2 h-2 rounded-full bg-yellow-acid animate-pulse shrink-0" />
-            <span className="font-mono text-[9px] tracking-[0.22em] uppercase leading-none">
-              {hero.statusBadge}
-            </span>
-          </span>
-        </div>
-
-        {/* ── Top-right: context ─────────────────────────────────────── */}
-        <div
-          className="absolute z-[3] text-right hidden md:block"
-          style={{ top: '5%', right: '4%' }}
-        >
-          <p
-            className="font-mono text-2xs tracking-[0.22em] uppercase leading-loose"
-            style={{ color: 'rgba(0,0,0,0.78)' }}
-          >
-            {hero.contextLine1}
-          </p>
-          <p
-            className="font-mono text-2xs tracking-[0.22em] uppercase"
-            style={{ color: 'rgba(0,0,0,0.62)' }}
-          >
-            {hero.contextLine2}
-          </p>
-        </div>
-
-        {/* ── Bottom-left: name ──────────────────────────────────────── */}
-        <div className="absolute z-[3] bottom-8 md:bottom-10 left-5 md:left-[5%]">
-          <h1
-            className="font-mono font-bold uppercase leading-[0.88] tracking-tight text-fg"
-            style={{ fontSize: 'clamp(26px, 4vw, 58px)' }}
-          >
-            {hero.name}<br />
-            <span style={{ color: 'var(--hero-accent)' }}>{hero.surname}</span>
-          </h1>
-        </div>
-
-        {/* ── Bottom-right: roles ────────────────────────────────────── */}
-        <div className="absolute z-[3] bottom-8 md:bottom-10 right-5 md:right-[5%] text-right">
-          <p
-            className="font-mono font-bold uppercase tracking-widest text-fg leading-[1.6]"
-            style={{ fontSize: 'clamp(9px, 1.1vw, 14px)' }}
-          >
-            {roles.map((line, i) => (
-              <span key={i}>
-                {i === roles.length - 1
-                  ? <span style={{ color: 'var(--hero-accent)' }}>{line}</span>
-                  : line
-                }
-                {i < roles.length - 1 && <br />}
-              </span>
+      {/* ═══ 03 · SELECTED WORK ═════════════════════════════════════════ */}
+      <section id="work" className="px-6 md:px-14 py-20 md:py-28 border-b border-stone scroll-mt-16">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-3">
+            <SectionLabel num="03">Selected work</SectionLabel>
+            <h2 className="font-serif text-[clamp(30px,3vw,40px)] leading-[1.1] mb-6">Things brought into existence.</h2>
+            <Link href="/founder" className="font-mono text-2xs tracking-[0.2em] uppercase no-underline text-accent-ink hover:underline">
+              All ventures →
+            </Link>
+          </div>
+          <ol className="md:col-span-9 list-none m-0 p-0 border-t border-fg">
+            {selected.map(v => (
+              <li key={v.id} className="grid grid-cols-[40px_1fr] md:grid-cols-[56px_1fr_200px] gap-x-4 gap-y-2 py-8 border-b border-stone">
+                <span className="font-mono text-2xs text-dim pt-3">{v.num}</span>
+                <div>
+                  <h3 className="font-serif text-[clamp(28px,3.2vw,44px)] leading-[1.05] m-0 mb-3">
+                    {v.url
+                      ? <a href={v.url} target="_blank" rel="noopener noreferrer" className="no-underline hover:text-accent-ink">{v.name} <span aria-hidden="true" className="text-signal text-[0.6em] align-top">↗</span></a>
+                      : v.name}
+                  </h3>
+                  <p className="font-serif text-[17px] leading-[1.6] text-muted max-w-[620px] m-0">{v.desc}</p>
+                </div>
+                <dl className="col-start-2 md:col-start-3 m-0 font-mono text-2xs tracking-[0.16em] uppercase grid grid-cols-[auto_1fr] md:grid-cols-1 gap-x-4 gap-y-1 md:pt-3">
+                  <dt className="text-dim">Role</dt><dd className="m-0 md:mb-3">{v.role}</dd>
+                  <dt className="text-dim">Since</dt><dd className="m-0 md:mb-3">{v.year}</dd>
+                  <dt className="text-dim">Status</dt><dd className="m-0">{v.status}</dd>
+                </dl>
+              </li>
             ))}
-          </p>
+          </ol>
         </div>
-
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          SECTIONS — Quick-nav strip, pinned to the bottom of the first screen
-      ══════════════════════════════════════════════════════════ */}
-      <section className="w-full shrink-0 grid grid-cols-2 md:grid-cols-4 border-t border-subtle">
-        {SECTIONS.map(({ href, label, desc, num, Icon }) => (
-          <Link
-            key={href}
-            href={href}
-            className="group relative px-4 py-3 md:px-8 md:py-5 border-r border-b border-subtle no-underline
-                       last:border-r-0 md:border-b-0
-                       [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r
-                       [&:nth-child(3)]:border-r-0 [&:nth-child(3)]:border-b-0
-                       [&:nth-child(4)]:border-b-0
-                       md:[&:nth-child(3)]:border-r hover:bg-yellow-acid/5"
-          >
-            <span className="hidden md:block mb-2 text-dim group-hover:text-accent-ink transition-colors">
-              <Icon className="w-4 h-4" />
-            </span>
-            <p className="font-mono text-xs tracking-widest uppercase text-accent-ink mb-1 group-hover:underline">
-              {label}
-            </p>
-            <p className="font-mono text-[10px] text-dim leading-snug pr-4">
-              {desc}
-            </p>
-            <span
-              className="absolute bottom-3 right-4 md:bottom-5 md:right-6 font-mono text-xs text-whisper group-hover:text-accent-ink"
-              aria-hidden="true"
-            >
-              →
-            </span>
-          </Link>
-        ))}
+      {/* ═══ 04 · THE JOURNAL ═══════════════════════════════════════════ */}
+      <section className="px-6 md:px-14 py-20 md:py-28 border-b border-stone">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-3">
+            <SectionLabel num="04">The Journal</SectionLabel>
+            <h2 className="font-serif text-[clamp(30px,3vw,40px)] leading-[1.1] mb-6">A record of thinking.</h2>
+            <Link href="/writings" className="font-mono text-2xs tracking-[0.2em] uppercase no-underline text-accent-ink hover:underline">
+              Read the journal →
+            </Link>
+          </div>
+          <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 border-t border-fg">
+            {posts.length === 0 && (
+              <p className="font-serif text-[17px] text-muted pt-6">New essays are on the way.</p>
+            )}
+            {posts.map(p => (
+              <article key={p.link} className="pt-6 pb-8 border-b md:border-b-0 border-stone flex flex-col gap-3">
+                <time className="font-mono text-2xs tracking-[0.16em] uppercase text-dim">{p.date}</time>
+                <h3 className="font-serif text-[22px] leading-[1.25] m-0">
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="no-underline hover:text-accent-ink">{p.title}</a>
+                </h3>
+                {p.preview && <p className="font-serif text-[15px] leading-[1.6] text-muted m-0">{p.preview}</p>}
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
-      </div>
 
-    </>
+      {/* ═══ 05 · THE PERSON ════════════════════════════════════════════ */}
+      <section className="px-6 md:px-14 py-20 md:py-28 border-b border-stone">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-3">
+            <SectionLabel num="05">The person</SectionLabel>
+            <h2 className="font-serif text-[clamp(30px,3vw,40px)] leading-[1.1] mb-6">Rooms, communities, conversations.</h2>
+            <Link href="/work" className="font-mono text-2xs tracking-[0.2em] uppercase no-underline text-accent-ink hover:underline">
+              The full journey →
+            </Link>
+          </div>
+          <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <p className="font-mono text-2xs tracking-[0.2em] uppercase text-dim mb-4">Selected speaking</p>
+              <ul className="list-none m-0 p-0 border-t border-fg">
+                {SPEAKING.slice(0, 4).map(s => (
+                  <li key={s.event + s.year} className="py-4 border-b border-stone grid grid-cols-[48px_1fr] gap-3">
+                    <span className="font-mono text-2xs text-dim pt-1">{s.year}</span>
+                    <span>
+                      <span className="block font-serif text-[18px] leading-snug">{s.event}</span>
+                      <span className="block font-mono text-2xs tracking-[0.14em] uppercase text-muted mt-1">{s.role}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="font-mono text-2xs tracking-[0.2em] uppercase text-dim mb-4">Communities &amp; ecosystems</p>
+              <ul className="list-none m-0 p-0 border-t border-fg">
+                {COMMUNITIES.map(c => (
+                  <li key={c.name} className="py-4 border-b border-stone">
+                    <span className="block font-serif text-[18px] leading-snug">{c.name}</span>
+                    <span className="block font-mono text-2xs tracking-[0.14em] uppercase text-muted mt-1">{c.note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 06 · INVITATION ════════════════════════════════════════════ */}
+      <section className="px-6 md:px-14 py-24 md:py-36">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-3"><SectionLabel num="06">Invitation</SectionLabel></div>
+          <div className="md:col-span-9">
+            <h2 className="font-serif italic text-[clamp(40px,6vw,88px)] leading-[1.02] tracking-[-0.02em] m-0 mb-8">
+              Good ideas deserve<br />good company<span className="text-signal">.</span>
+            </h2>
+            <p className="font-serif text-[18px] leading-[1.6] text-muted max-w-[520px] mb-10">
+              Open to interesting conversations, collaborations and opportunities to build
+              meaningful things.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/social" className="font-mono text-xs tracking-[0.22em] uppercase no-underline bg-fg text-bg px-7 py-4 hover:bg-accent-ink">
+                Get in touch
+              </Link>
+              <a href="https://x.com/thinkDecade" target="_blank" rel="noopener noreferrer" className="font-mono text-xs tracking-[0.22em] uppercase no-underline border border-fg px-7 py-4 hover:text-accent-ink hover:border-accent-ink">
+                @thinkDecade ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
   )
 }

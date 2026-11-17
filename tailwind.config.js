@@ -13,7 +13,7 @@ module.exports = {
         mono:  ['var(--font-mono)', 'monospace'],
       },
       colors: {
-        'yellow-acid': '#F5A100',
+        'yellow-acid': 'rgb(var(--color-signal) / <alpha-value>)',  // now Signal #D95D35
         'accent-ink': 'rgb(var(--color-accent-ink) / <alpha-value>)',
         'bg':          'rgb(var(--color-bg) / <alpha-value>)',
         'fg':          'rgb(var(--color-fg) / <alpha-value>)',
