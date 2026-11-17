@@ -4,6 +4,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import SocialLinks, { HEADER_SOCIALS } from '@/components/SocialLinks'
 import ThemeToggle from './ThemeToggle'
 
 const NAV_ITEMS = [
@@ -54,6 +55,13 @@ export default function Nav() {
 
         {/* ── Right: theme toggle + contact pill + hamburger ─────────── */}
         <div className="ml-auto flex items-center gap-2">
+          {/* Priority social profiles — desktop only, set apart by a hairline */}
+          <SocialLinks
+            ids={HEADER_SOCIALS}
+            className="hidden xl:flex"
+            linkClass="text-fg hover:text-accent-ink border-b-2 border-transparent hover:border-yellow-acid"
+          />
+          <span className="hidden xl:block w-px h-5 bg-fg/20 mx-2" aria-hidden="true" />
           <ThemeToggle />
 
           {/* Desktop contact pill */}
@@ -104,6 +112,11 @@ export default function Nav() {
               )
             })}
           </nav>
+
+          <div className="px-6 pt-2">
+            <p className="font-mono text-2xs tracking-[0.22em] uppercase text-dim mb-1">Find me online</p>
+            <SocialLinks className="-ml-3" linkClass="text-fg hover:text-accent-ink" size="w-5 h-5" />
+          </div>
 
           <div className="px-6 pb-10 pt-4">
             <Link

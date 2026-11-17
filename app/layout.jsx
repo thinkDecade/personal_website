@@ -1,6 +1,7 @@
 // app/layout.jsx
 import { Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import ConditionalNav from '@/components/ConditionalNav'
+import ConditionalFooter from '@/components/ConditionalFooter'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
         <main className="flex-1 flex flex-col">
           {children}
         </main>
+        <ConditionalFooter />
       </body>
     </html>
   )
