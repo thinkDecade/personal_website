@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 
 // Fallback defaults if content data is missing
 const HERO_DEFAULTS = {
-  headline1:    'Thinking,',
+  headline1:    'Imagining,',
   headline2:    'building.',
   statusBadge:  'Open to conversations',
   contextLine1: 'Onchain Finance · AI · Fintech',
