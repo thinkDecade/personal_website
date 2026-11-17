@@ -4,13 +4,14 @@ import { revalidatePath }                  from 'next/cache'
 import { verifyAdminToken, getAdminToken } from '@/lib/auth'
 import { readSection, writeSection }       from '@/lib/store'
 
-const ALLOWED  = ['content', 'events', 'founder', 'work', 'social']
+const ALLOWED  = ['content', 'events', 'founder', 'work', 'social', 'gallery']
 const PATH_MAP = {
   content: ['/', '/admin/content'],
   events:  ['/social', '/admin/events'],
   founder: ['/founder', '/admin/founder'],
   work:    ['/work', '/admin/work'],
   social:  ['/social', '/admin/social'],
+  gallery: ['/gallery', '/', '/admin/gallery'],
 }
 
 async function requireAuth(request) {

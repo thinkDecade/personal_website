@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { readSection }      from '@/lib/store'
 import { getSubstackPosts } from '@/lib/substack'
 import { SPEAKING }         from '@/lib/profile'
+import { publishedItems, thumbFor } from '@/lib/gallery'
 
 export const dynamic = 'force-dynamic'
 
@@ -38,11 +39,16 @@ function SectionLabel({ num, children }) {
 }
 
 export default async function Home() {
-  const [ventures, work, posts] = await Promise.all([
+  const [ventures, work, posts, gallery] = await Promise.all([
     readSection('founder'),
     readSection('work'),
     getSubstackPosts('https://thinkdecade.substack.com/feed', 3).catch(() => []),
+    readSection('gallery'),
   ])
+
+  // Gallery preview: featured first, then most recent, max 5
+  const published = publishedItems(gallery)
+  const frames = [...published.filter(g => g.featured), ...published.filter(g => !g.featured)].slice(0, 5)
 
   const roleById = Object.fromEntries((work || []).map(w => [w.id, w.role]))
   const selected = (ventures || []).map((v, i) => ({
@@ -193,11 +199,44 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ═══ 05 · GALLERY PREVIEW ═══════════════════════════════════════ */}
+      {frames.length > 0 && (
+        <section className="surface-dark px-6 md:px-14 py-20 md:py-28">
+          <div className="max-w-[1280px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+              <div className="md:col-span-3"><SectionLabel num="05">Gallery</SectionLabel></div>
+              <div className="md:col-span-9 flex flex-wrap items-end justify-between gap-6">
+                <h2 className="font-serif italic text-[clamp(36px,4.6vw,64px)] leading-[1.02] m-0">A life in frames<span className="text-signal not-italic">.</span></h2>
+                <Link href="/gallery" className="font-mono text-xs tracking-[0.22em] uppercase no-underline bg-yellow-acid text-black px-6 py-3.5 hover:bg-white">
+                  Explore the Gallery →
+                </Link>
+              </div>
+            </div>
+            <ul className="list-none m-0 p-0 grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
+              {frames.map((f, i) => {
+                const span = i === 0 ? 'col-span-2 md:col-span-6 md:row-span-2' : 'col-span-1 md:col-span-3'
+                return (
+                  <li key={f.id} className={span}>
+                    <Link href="/gallery" className="group relative block w-full h-full overflow-hidden bg-white/5 no-underline" style={{ aspectRatio: '4 / 3' }} aria-label={`Gallery: ${f.title || f.alt}`}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={thumbFor(f)} alt={f.alt || f.title || ''} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+                      {f.type === 'video' && (
+                        <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center"><span className="w-12 h-12 bg-black/80 flex items-center justify-center"><svg viewBox="0 0 24 24" className="w-5 h-5 text-yellow-acid" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span></span>
+                      )}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* ═══ 05 · THE PERSON ════════════════════════════════════════════ */}
       <section className="surface-orange px-6 md:px-14 py-20 md:py-28">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-3">
-            <SectionLabel num="05">The person</SectionLabel>
+            <SectionLabel num="06">The person</SectionLabel>
             <h2 className="font-serif text-[clamp(30px,3vw,40px)] leading-[1.1] mb-6">Rooms, communities, conversations.</h2>
             <Link href="/work" className="font-mono text-2xs tracking-[0.2em] uppercase no-underline text-accent-ink hover:underline">
               The full journey →
@@ -236,7 +275,7 @@ export default async function Home() {
       {/* ═══ 06 · INVITATION ════════════════════════════════════════════ */}
       <section className="surface-dark px-6 md:px-14 py-24 md:py-36">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-3"><SectionLabel num="06">Invitation</SectionLabel></div>
+          <div className="md:col-span-3"><SectionLabel num="07">Invitation</SectionLabel></div>
           <div className="md:col-span-9">
             <h2 className="font-serif italic text-[clamp(40px,6vw,88px)] leading-[1.02] tracking-[-0.02em] m-0 mb-8">
               Good ideas deserve<br />good company<span className="text-signal">.</span>
