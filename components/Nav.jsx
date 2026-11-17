@@ -42,8 +42,8 @@ export default function Nav() {
                 key={href}
                 href={href}
                 className={[
-                  'font-mono text-[10px] tracking-[0.2em] uppercase no-underline transition-colors',
-                  isActive ? 'text-fg' : 'text-dim hover:text-fg',
+                  'font-mono text-[10px] tracking-[0.2em] uppercase no-underline py-1.5 border-b-2',
+                  isActive ? 'text-fg border-yellow-acid' : 'text-muted border-transparent hover:text-fg hover:border-fg',
                 ].join(' ')}
               >
                 {label}
@@ -61,7 +61,7 @@ export default function Nav() {
             href="/social"
             className="hidden md:inline-flex items-center font-mono text-[10px] tracking-[0.18em]
                        uppercase bg-fg text-bg px-5 py-2.5 no-underline
-                       hover:opacity-75 transition-opacity shrink-0"
+                       hover:bg-yellow-acid hover:text-black shrink-0"
           >
             Contact
           </Link>
@@ -110,7 +110,7 @@ export default function Nav() {
               href="/social"
               onClick={close}
               className="flex items-center justify-center font-mono text-[11px] tracking-[0.18em]
-                         uppercase bg-fg text-bg py-4 no-underline hover:opacity-75 transition-opacity"
+                         uppercase bg-fg text-bg py-4 no-underline hover:bg-yellow-acid hover:text-black"
             >
               Contact
             </Link>
