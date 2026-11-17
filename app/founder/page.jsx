@@ -12,6 +12,7 @@ export const dynamic = 'force-dynamic'
 
 const STATUS_CLASSES = {
   ACTIVE:   'border-yellow-acid text-accent-ink',
+  'OPEN SOURCED': 'border-yellow-acid text-accent-ink',
   BUILDING: 'border-mid text-dim',
   STEALTH:  'border-mid text-dim',
   ARCHIVED: 'border-mid text-whisper',

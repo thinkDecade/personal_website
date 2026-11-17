@@ -14,10 +14,11 @@ const INPUT = ({ className = '', ...props }) => (
   />
 )
 
-const STATUS_OPTS = ['ACTIVE', 'BUILDING', 'ARCHIVED', 'STEALTH']
+const STATUS_OPTS = ['ACTIVE', 'BUILDING', 'OPEN SOURCED', 'ARCHIVED', 'STEALTH']
 
 function statusColor(s) {
   if (s === 'ACTIVE')    return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'
+  if (s === 'OPEN SOURCED') return 'text-sky-400 bg-sky-400/10 border-sky-400/20'
   if (s === 'BUILDING')  return 'text-[#F5A100] bg-[#F5A100]/10 border-[#F5A100]/20'
   if (s === 'ARCHIVED')  return 'text-neutral-400 bg-neutral-400/10 border-neutral-400/20'
   if (s === 'STEALTH')   return 'text-purple-400 bg-purple-400/10 border-purple-400/20'

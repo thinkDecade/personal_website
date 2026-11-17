@@ -45,7 +45,7 @@
     "id": "library-protocol",
     "name": "Library Protocol",
     "year": "2025",
-    "status": "ACTIVE",
+    "status": "OPEN SOURCED",
     "url": "https://libraryprotocol.xyz",
     "desc": "An open-source, onchain book-sharing network. Put a personal, school, or community library onchain, then lend and borrow books across borders — secured by smart contracts and a reputation system instead of a central platform. An open-source public good in the Gitcoin Grants ecosystem.",
     "tags": [
