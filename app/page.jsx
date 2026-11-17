@@ -168,7 +168,7 @@ export default async function Home() {
             {selected.length > 3 && (
               <li className="pt-10">
                 <Link href="/founder" className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.22em] uppercase no-underline bg-yellow-acid text-black px-7 py-4 hover:bg-white">
-                  View all {selected.length} ventures <span aria-hidden="true">→</span>
+                  View all <span aria-hidden="true">→</span>
                 </Link>
               </li>
             )}
