@@ -55,7 +55,7 @@ export default async function Home() {
     <div className="w-full">
 
       {/* ═══ 01 · OPENING ═══════════════════════════════════════════════ */}
-      <section className="px-6 md:px-14 pt-12 md:pt-16 pb-20 md:pb-28 border-b border-stone">
+      <section className="surface-orange px-6 md:px-14 pt-12 md:pt-16 pb-20 md:pb-28">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-end">
 
           <div className="md:col-span-7 flex flex-col">
@@ -70,7 +70,7 @@ export default async function Home() {
 
             <h1 className="font-serif leading-[0.98] tracking-[-0.02em] text-[clamp(44px,7.2vw,104px)] mb-12">
               Thinking in systems.<br />
-              <em className="text-signal">Building what comes next.</em>
+              <em className="not-italic block mt-[0.14em]"><span className="italic bg-black text-white px-[0.12em] leading-[1.18] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">Building what comes next.</span></em>
             </h1>
 
             <div className="max-w-[520px] flex flex-col gap-3">
@@ -84,7 +84,7 @@ export default async function Home() {
               </p>
               <a
                 href="#work"
-                className="mt-6 self-start font-mono text-xs tracking-[0.22em] uppercase no-underline border-b border-fg pb-1 hover:text-accent-ink hover:border-accent-ink"
+                className="mt-6 self-start font-mono text-xs tracking-[0.22em] uppercase no-underline bg-black text-white px-6 py-3.5 hover:bg-white hover:text-black"
               >
                 Explore the work ↓
               </a>
@@ -96,20 +96,20 @@ export default async function Home() {
             <img
               src="/muntala.jpg"
               alt="Portrait of Muntala Piniyini Shaibu"
-              className="w-full aspect-[4/5] object-cover object-top grayscale contrast-[1.08]"
+              className="w-full aspect-[4/5] object-cover object-top"
             />
           </figure>
         </div>
       </section>
 
       {/* ═══ 02 · PHILOSOPHY ════════════════════════════════════════════ */}
-      <section className="px-6 md:px-14 py-20 md:py-28 border-b border-stone">
+      <section className="surface-light px-6 md:px-14 py-20 md:py-28">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-3"><SectionLabel num="02">Philosophy</SectionLabel></div>
           <div className="md:col-span-9">
             <blockquote className="m-0 font-serif italic text-[clamp(28px,3.8vw,52px)] leading-[1.15] tracking-[-0.01em] mb-10">
-              The world doesn&rsquo;t need more observers. It needs people willing to question,
-              imagine and build.
+              The world doesn&rsquo;t need more observers. It needs people willing to{' '}
+              <span className="underline decoration-yellow-acid decoration-[6px] underline-offset-[8px] [text-decoration-skip-ink:none]">question, imagine and build.</span>
             </blockquote>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[860px] mb-16">
               <p className="font-serif text-[18px] leading-[1.65] text-muted m-0">
@@ -120,10 +120,10 @@ export default async function Home() {
                 My work sits at the intersection of ideas and execution.
               </p>
             </div>
-            <ol className="list-none m-0 p-0 grid grid-cols-1 md:grid-cols-3 border-t border-fg">
+            <ol className="list-none m-0 p-0 grid grid-cols-1 md:grid-cols-3 border-t-2 border-yellow-acid">
               {DIMENSIONS.map((d, i) => (
                 <li key={d.name} className="pt-6 pb-2 md:pr-8 border-b md:border-b-0 border-stone">
-                  <p className="font-mono text-2xs tracking-[0.2em] text-dim mb-3">0{i + 1}</p>
+                  <p className="font-mono text-2xs tracking-[0.2em] text-dim mb-3 flex items-center gap-2"><span className="w-1.5 h-1.5 bg-yellow-acid" aria-hidden="true" />0{i + 1}</p>
                   <p className="font-serif font-bold text-[24px] mb-2">{d.name}</p>
                   <p className="font-serif text-[16px] leading-[1.6] text-muted m-0">{d.body}</p>
                 </li>
@@ -134,7 +134,7 @@ export default async function Home() {
       </section>
 
       {/* ═══ 03 · SELECTED WORK ═════════════════════════════════════════ */}
-      <section id="work" className="px-6 md:px-14 py-20 md:py-28 border-b border-stone scroll-mt-16">
+      <section id="work" className="surface-dark px-6 md:px-14 py-20 md:py-28 scroll-mt-16">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-3">
             <SectionLabel num="03">Selected work</SectionLabel>
@@ -143,10 +143,10 @@ export default async function Home() {
               All ventures →
             </Link>
           </div>
-          <ol className="md:col-span-9 list-none m-0 p-0 border-t border-fg">
+          <ol className="md:col-span-9 list-none m-0 p-0 border-t border-yellow-acid">
             {selected.map(v => (
               <li key={v.id} className="grid grid-cols-[40px_1fr] md:grid-cols-[56px_1fr_200px] gap-x-4 gap-y-2 py-8 border-b border-stone">
-                <span className="font-mono text-2xs text-dim pt-3">{v.num}</span>
+                <span className="font-mono text-2xs text-accent-ink pt-3">{v.num}</span>
                 <div>
                   <h3 className="font-serif text-[clamp(28px,3.2vw,44px)] leading-[1.05] m-0 mb-3">
                     {v.url
@@ -158,7 +158,7 @@ export default async function Home() {
                 <dl className="col-start-2 md:col-start-3 m-0 font-mono text-2xs tracking-[0.16em] uppercase grid grid-cols-[auto_1fr] md:grid-cols-1 gap-x-4 gap-y-1 md:pt-3">
                   <dt className="text-dim">Role</dt><dd className="m-0 md:mb-3">{v.role}</dd>
                   <dt className="text-dim">Since</dt><dd className="m-0 md:mb-3">{v.year}</dd>
-                  <dt className="text-dim">Status</dt><dd className="m-0">{v.status}</dd>
+                  <dt className="text-dim">Status</dt><dd className={`m-0 ${v.status === 'ARCHIVED' ? 'text-dim' : 'text-accent-ink'}`}>{v.status === 'ARCHIVED' ? 'Past' : 'Current'} · {v.status}</dd>
                 </dl>
               </li>
             ))}
@@ -167,7 +167,7 @@ export default async function Home() {
       </section>
 
       {/* ═══ 04 · THE JOURNAL ═══════════════════════════════════════════ */}
-      <section className="px-6 md:px-14 py-20 md:py-28 border-b border-stone">
+      <section className="surface-light px-6 md:px-14 py-20 md:py-28">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-3">
             <SectionLabel num="04">The Journal</SectionLabel>
@@ -176,7 +176,7 @@ export default async function Home() {
               Read the journal →
             </Link>
           </div>
-          <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 border-t border-fg">
+          <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 border-t-2 border-yellow-acid">
             {posts.length === 0 && (
               <p className="font-serif text-[17px] text-muted pt-6">New essays are on the way.</p>
             )}
@@ -194,7 +194,7 @@ export default async function Home() {
       </section>
 
       {/* ═══ 05 · THE PERSON ════════════════════════════════════════════ */}
-      <section className="px-6 md:px-14 py-20 md:py-28 border-b border-stone">
+      <section className="surface-orange px-6 md:px-14 py-20 md:py-28">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-3">
             <SectionLabel num="05">The person</SectionLabel>
@@ -234,7 +234,7 @@ export default async function Home() {
       </section>
 
       {/* ═══ 06 · INVITATION ════════════════════════════════════════════ */}
-      <section className="px-6 md:px-14 py-24 md:py-36">
+      <section className="surface-dark px-6 md:px-14 py-24 md:py-36">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-3"><SectionLabel num="06">Invitation</SectionLabel></div>
           <div className="md:col-span-9">
@@ -246,10 +246,10 @@ export default async function Home() {
               meaningful things.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/social" className="font-mono text-xs tracking-[0.22em] uppercase no-underline bg-fg text-bg px-7 py-4 hover:bg-accent-ink">
+              <Link href="/social" className="font-mono text-xs tracking-[0.22em] uppercase no-underline bg-yellow-acid text-black px-7 py-4 hover:bg-white">
                 Get in touch
               </Link>
-              <a href="https://x.com/thinkDecade" target="_blank" rel="noopener noreferrer" className="font-mono text-xs tracking-[0.22em] uppercase no-underline border border-fg px-7 py-4 hover:text-accent-ink hover:border-accent-ink">
+              <a href="https://x.com/thinkDecade" target="_blank" rel="noopener noreferrer" className="font-mono text-xs tracking-[0.22em] uppercase no-underline border border-fg px-7 py-4 hover:bg-white hover:text-black">
                 @thinkDecade ↗
               </a>
             </div>
